@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class Empresa {
     
-    private String nom;
+    private String nomEmp;
     private ArrayList <Vaixell> llistaVaixell;
     private ArrayList <Client> llistaClient;
     private ArrayList <Empleat> llistaEmpleat;
@@ -28,7 +28,7 @@ public class Empresa {
     private ArrayList <Reparacions> llistaReparacions;
 
     public Empresa(String nom) {
-        this.nom = nom;
+        this.nomEmp = nomEmp;
         this.llistaVaixell = llistaVaixell;
         this.llistaClient = llistaClient;
         this.llistaEmpleat = llistaEmpleat;
@@ -38,11 +38,11 @@ public class Empresa {
     }
 
     public String getNom() {
-        return nom;
+        return nomEmp;
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        this.nomEmp = nom;
     }
 
     public ArrayList<Vaixell> getLlistaVaixell() {
@@ -93,11 +93,13 @@ public class Empresa {
         this.llistaReparacions = llistaReparacions;
     }
 
-    
+    public boolean afegirClient (Empresa nomEmp , Client nom){
+        return false;
+    }
     
     @Override
     public String toString() {
-        return "Empresa{" + "nom=" + nom + ", llistaVaixell=" + llistaVaixell + ", llistaClient=" + llistaClient + ", llistaEmpleat=" + llistaEmpleat + ", llistaVenda=" + llistaVenda + ", llistaLloguer=" + llistaLloguer + ", llistaReparacions=" + llistaReparacions + '}';
+        return "Empresa{" + "nom=" + nomEmp + ", llistaVaixell=" + llistaVaixell + ", llistaClient=" + llistaClient + ", llistaEmpleat=" + llistaEmpleat + ", llistaVenda=" + llistaVenda + ", llistaLloguer=" + llistaLloguer + ", llistaReparacions=" + llistaReparacions + '}';
     }
     
     
