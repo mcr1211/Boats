@@ -26,7 +26,7 @@ public class Client extends Persona {
        this.targetaCredit = null;
    }
     
-     public Client (String nom, String llinatges, Document document,String nDocument,String adreca,int telefon,String email, TargetaCredit targeta){
+     public Client (String nom, String llinatges, Document document,String nDocument,String adreca,int telefon,String email, TargetaCredit targetaCredit){
        super(nom,llinatges,document,nDocument,adreca,telefon,email);
        this.compteCorrent = null;
        this.targetaCredit = targetaCredit;
