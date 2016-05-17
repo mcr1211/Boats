@@ -19,6 +19,18 @@ public class Client extends Persona {
         this.compteCorrent = compteCorrent;
         this.targetaCredit = targetaCredit;
     }
+    
+    public Client (String nom, String llinatges, Document document,String nDocument,String adreca,int telefon,String email, String comptaCorrent){
+       super(nom,llinatges,document,nDocument,adreca,telefon,email);
+       this.compteCorrent = comptaCorrent;
+       this.targetaCredit = null;
+   }
+    
+     public Client (String nom, String llinatges, Document document,String nDocument,String adreca,int telefon,String email, TargetaCredit targeta){
+       super(nom,llinatges,document,nDocument,adreca,telefon,email);
+       this.compteCorrent = null;
+       this.targetaCredit = targetaCredit;
+   }
 
     public String getCompteCorrent() {
         return compteCorrent;
