@@ -94,9 +94,13 @@ public class Empresa {
         this.llistaReparacions = llistaReparacions;
     }
 
-    public boolean afegirClient(String nDocument) {
+    public boolean afegirClient(String numDocument) {
         for (Client d : llistaClient) {
-            if (d.getNumDocument() == nDocument) {
+            if (d.getNumDocument().equalsIgnoreCase(numDocument)) {
+               llistaClient.add(d);
+               return true;
+            }else{
+                return false;
             }
         }
         return false;
