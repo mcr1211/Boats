@@ -11,5 +11,5 @@ package com.Boat.Persona;
  */
 public enum Habilitat {
     
-    FUSTERIA, MECANICA, FONTANERIA, ELECTRICITAT, VIDRE, VELA
+    FUSTERIA, MECANICA, FONTANERIA, ELECTRICITAT, VIDRE, VELA2
 }
