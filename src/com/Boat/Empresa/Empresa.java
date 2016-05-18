@@ -5,6 +5,7 @@
  */
 package com.Boat.Empresa;
 
+import com.Boat.Exception.AfegirException;
 import com.Boat.Operacions.Lloguer;
 import com.Boat.Operacions.Reparacions;
 import com.Boat.Operacions.Venda;
@@ -113,7 +114,14 @@ public class Empresa {
         }
         return false;
     }
-    
-   
+
+    public void afegirVaixell(Vaixell num1) throws AfegirException {
+        if (llistaVaixell.contains(num1)) {
+            throw new AfegirException("No s'ha afegit, perqué ja existeix");
+        }
+
+        llistaVaixell.add(num1);
+
+    }
 
 }
