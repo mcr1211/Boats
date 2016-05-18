@@ -115,12 +115,12 @@ public class Empresa {
 
     }
 
-    public void afegirVaixell(Vaixell num1) throws AfegirException {
-        if (llistaVaixell.contains(num1)) {
-            throw new AfegirException("No s'ha afegit, perqué ja existeix" + num1);
+    public void afegirVaixell(Vaixell vaixell) throws AfegirException {
+        if (llistaVaixell.contains(vaixell.getMatricula())) {
+            throw new AfegirException("No s'ha afegit, perqué ja existeix" + vaixell.getMatricula());
         }
 
-        llistaVaixell.add(num1);
+        llistaVaixell.add(vaixell);
 
     }
 
