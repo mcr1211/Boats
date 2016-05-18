@@ -7,9 +7,10 @@ package com.Boat.Persona;
 
 /**
  *
- * @author Toni Dalmau Martínez
+ * @author Elio
  */
-public enum Habilitat {
+public enum Habilitats {
     
-    FUSTERIA, MECANICA, FONTANERIA, ELECTRICITAT, VIDRE, VELA2
+    
+    FUSTERIA,MECANICA,FONTANERIA,ELECTRICITAT,VIDRE,VELA;
 }
