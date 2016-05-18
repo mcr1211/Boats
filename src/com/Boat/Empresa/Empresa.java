@@ -103,25 +103,36 @@ public class Empresa {
         return "Empresa{" + "nom=" + nomEmp + ", llistaVaixell=" + llistaVaixell + ", llistaClient=" + llistaClient + ", llistaEmpleat=" + llistaEmpleat + ", llistaVenda=" + llistaVenda + ", llistaLloguer=" + llistaLloguer + ", llistaReparacions=" + llistaReparacions + '}';
     }
 
-    public boolean afegirClient(String numDocument) {
+    public void afegirClient(String numDocument) throws AfegirException {
         for (Client d : llistaClient) {
             if (d.getNumDocument().equalsIgnoreCase(numDocument)) {
-                return false;
+                throw new AfegirException("No s'ha afegit, perqué ja existeix" + numDocument);
             } else {
                 llistaClient.add(d);
-                return true;
+
             }
         }
-        return false;
+
     }
 
     public void afegirVaixell(Vaixell num1) throws AfegirException {
         if (llistaVaixell.contains(num1)) {
-            throw new AfegirException("No s'ha afegit, perqué ja existeix");
+            throw new AfegirException("No s'ha afegit, perqué ja existeix" + num1);
         }
 
         llistaVaixell.add(num1);
 
     }
 
+    public void afegirEmpleat(String numDocument) throws AfegirException {
+        for (Empleat d : llistaEmpleat) {
+            if (d.getNumDocument().equalsIgnoreCase(numDocument)) {
+                throw new AfegirException("No s'ha afegit, perqué ja existeix" + numDocument);
+            } else {
+                llistaEmpleat.add(d);
+
+            }
+        }
+
+    }
 }

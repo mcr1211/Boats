@@ -25,6 +25,9 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
+       
         TargetaCredit visa  = new TargetaCredit(23,5,5,10);
         Client num1 = new Client("pep","misto",Document.DNI,"4564554f","c/sol",12345,"pep@misto.com",visa);
         
