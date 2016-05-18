@@ -35,11 +35,11 @@ public class Main {
         System.out.println(pat1);
         
         Map <String,Persona> mp = new HashMap<String,Persona>();
-        Persona p = new Persona("toni","dalmau",Document.DNI,"123123k","c/sol",1249,"toni@dalmau.com");
+        Persona p = new Persona("toni","dalmau",Document.DNI,"123123k","c/sol",1249,"toni@dalmau.com"+"\n");
         mp.put("123123k",p);
-        p = new Persona("elio","camison",Document.DNI,"321321k","c/ca",9999,"elio@camison.com");
+        p = new Persona("elio","camison",Document.DNI,"321321k","c/ca",9999,"elio@camison.com"+"\n");
         mp.put("321321k", p);
-        System.out.println("Persones a nes mapa: \n"+mp.toString());
+        System.out.println(mp.toString());
     }
     
 }
