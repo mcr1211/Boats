@@ -97,10 +97,10 @@ public class Empresa {
     public boolean afegirClient(String numDocument) {
         for (Client d : llistaClient) {
             if (d.getNumDocument().equalsIgnoreCase(numDocument)) {
-               llistaClient.add(d);
-               return true;
+               return false;
             }else{
-                return false;
+                llistaClient.add(d);
+                return true;
             }
         }
         return false;
