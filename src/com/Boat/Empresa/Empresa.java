@@ -10,6 +10,7 @@ import com.Boat.Operacions.Reparacions;
 import com.Boat.Operacions.Venda;
 import com.Boat.Persona.Client;
 import com.Boat.Persona.Empleat;
+import com.Boat.Persona.Persona;
 import com.Boat.Vaixell.Vaixell;
 import java.util.ArrayList;
 
@@ -18,14 +19,14 @@ import java.util.ArrayList;
  * @author Elio
  */
 public class Empresa {
-    
+
     private String nomEmp;
-    private ArrayList <Vaixell> llistaVaixell;
-    private ArrayList <Client> llistaClient;
-    private ArrayList <Empleat> llistaEmpleat;
-    private ArrayList <Venda> llistaVenda;
-    private ArrayList <Lloguer> llistaLloguer;
-    private ArrayList <Reparacions> llistaReparacions;
+    private ArrayList<Vaixell> llistaVaixell;
+    private ArrayList<Client> llistaClient;
+    private ArrayList<Empleat> llistaEmpleat;
+    private ArrayList<Venda> llistaVenda;
+    private ArrayList<Lloguer> llistaLloguer;
+    private ArrayList<Reparacions> llistaReparacions;
 
     public Empresa(String nom) {
         this.nomEmp = nomEmp;
@@ -93,15 +94,17 @@ public class Empresa {
         this.llistaReparacions = llistaReparacions;
     }
 
-    public boolean afegirClient (Empresa nomEmp , Client nom){
+    public boolean afegirClient(String nDocument) {
+        for (Client d : llistaClient) {
+            if (d.getNumDocument() == nDocument) {
+            }
+        }
         return false;
     }
-    
+
     @Override
     public String toString() {
         return "Empresa{" + "nom=" + nomEmp + ", llistaVaixell=" + llistaVaixell + ", llistaClient=" + llistaClient + ", llistaEmpleat=" + llistaEmpleat + ", llistaVenda=" + llistaVenda + ", llistaLloguer=" + llistaLloguer + ", llistaReparacions=" + llistaReparacions + '}';
     }
-    
-    
-    
+
 }
