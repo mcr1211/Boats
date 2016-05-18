@@ -5,6 +5,8 @@
  */
 package com.Boat.Persona;
 
+import java.util.Objects;
+
 /**
  *
  * @author Toni Dalmau Martínez
@@ -90,4 +92,21 @@ public class Persona {
         return "Persona{" + "nom=" + nom + ", llinatge=" + llinatge + ", document=" + document + ", numDocument=" + numDocument + ", adre\u00e7a=" + adreça + ", telefon=" + telefon + ", email=" + email + '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        if (!Objects.equals(this.numDocument, other.numDocument)) {
+            return false;
+        }
+        return true;
+    }
+
+    
 }

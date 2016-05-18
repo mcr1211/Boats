@@ -9,10 +9,13 @@ import com.Boat.Operacions.Lloguer;
 import com.Boat.Operacions.Reparacions;
 import com.Boat.Operacions.Venda;
 import com.Boat.Persona.Client;
+import com.Boat.Persona.Document;
 import com.Boat.Persona.Empleat;
 import com.Boat.Persona.Persona;
 import com.Boat.Vaixell.Vaixell;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -94,18 +97,16 @@ public class Empresa {
         this.llistaReparacions = llistaReparacions;
     }
 
-    
-
     @Override
     public String toString() {
         return "Empresa{" + "nom=" + nomEmp + ", llistaVaixell=" + llistaVaixell + ", llistaClient=" + llistaClient + ", llistaEmpleat=" + llistaEmpleat + ", llistaVenda=" + llistaVenda + ", llistaLloguer=" + llistaLloguer + ", llistaReparacions=" + llistaReparacions + '}';
     }
-    
+
     public boolean afegirClient(String numDocument) {
         for (Client d : llistaClient) {
             if (d.getNumDocument().equalsIgnoreCase(numDocument)) {
-               return false;
-            }else{
+                return false;
+            } else {
                 llistaClient.add(d);
                 return true;
             }

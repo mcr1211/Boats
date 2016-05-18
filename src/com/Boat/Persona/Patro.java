@@ -14,7 +14,7 @@ public class Patro extends Persona {
     private String titulacio;
     private double costServei;
 
-    public Patro(String titulacio, double costServei, String nom, String llinatge, Document document, String numDocument, String adreça, int telefon, String email) {
+    public Patro(String nom, String llinatge, Document document, String numDocument, String adreça, int telefon, String email, String titulacio, double costServei) {
         super(nom, llinatge, document, numDocument, adreça, telefon, email);
         this.titulacio = titulacio;
         this.costServei = costServei;
