@@ -6,6 +6,8 @@
 package com.Boat.Empresa;
 
 import com.Boat.Exception.AfegirException;
+import com.Boat.Exception.LlistesException;
+import com.Boat.Model.Model;
 import com.Boat.Operacions.Lloguer;
 import com.Boat.Operacions.Reparacions;
 import com.Boat.Operacions.Venda;
@@ -16,6 +18,8 @@ import com.Boat.Persona.Persona;
 import com.Boat.Vaixell.Vaixell;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -25,52 +29,52 @@ import java.util.Map;
 public class Empresa {
 
     private String nomEmp;
-    private ArrayList<Vaixell> llistaVaixell;
-    private ArrayList<Client> llistaClient;
-    private ArrayList<Empleat> llistaEmpleat;
+    private HashMap<String, Vaixell> llistaVaixell;
+    private HashMap<String, Client> llistaClient;
+    private HashMap<String, Empleat> llistaEmpleat;
     private ArrayList<Venda> llistaVenda;
     private ArrayList<Lloguer> llistaLloguer;
     private ArrayList<Reparacions> llistaReparacions;
 
     public Empresa(String nom) {
         this.nomEmp = nomEmp;
-        this.llistaVaixell = llistaVaixell;
-        this.llistaClient = llistaClient;
-        this.llistaEmpleat = llistaEmpleat;
-        this.llistaVenda = llistaVenda;
-        this.llistaLloguer = llistaLloguer;
-        this.llistaReparacions = llistaReparacions;
+        llistaVaixell = new HashMap<>();
+        llistaClient = new HashMap<>();
+        llistaEmpleat = new HashMap<>();
+        llistaVenda = new ArrayList<>();
+        llistaLloguer = new ArrayList<>();
+        llistaReparacions = new ArrayList<>();
     }
 
-    public String getNom() {
+    public String getNomEmp() {
         return nomEmp;
     }
 
-    public void setNom(String nom) {
-        this.nomEmp = nom;
+    public void setNomEmp(String nomEmp) {
+        this.nomEmp = nomEmp;
     }
 
-    public ArrayList<Vaixell> getLlistaVaixell() {
+    public HashMap<String, Vaixell> getLlistaVaixell() {
         return llistaVaixell;
     }
 
-    public void setLlistaVaixell(ArrayList<Vaixell> llistaVaixell) {
+    public void setLlistaVaixell(HashMap<String, Vaixell> llistaVaixell) {
         this.llistaVaixell = llistaVaixell;
     }
 
-    public ArrayList<Client> getLlistaClient() {
+    public HashMap<String, Client> getLlistaClient() {
         return llistaClient;
     }
 
-    public void setLlistaClient(ArrayList<Client> llistaClient) {
+    public void setLlistaClient(HashMap<String, Client> llistaClient) {
         this.llistaClient = llistaClient;
     }
 
-    public ArrayList<Empleat> getLlistaEmpleat() {
+    public HashMap<String, Empleat> getLlistaEmpleat() {
         return llistaEmpleat;
     }
 
-    public void setLlistaEmpleat(ArrayList<Empleat> llistaEmpleat) {
+    public void setLlistaEmpleat(HashMap<String, Empleat> llistaEmpleat) {
         this.llistaEmpleat = llistaEmpleat;
     }
 
@@ -100,39 +104,43 @@ public class Empresa {
 
     @Override
     public String toString() {
-        return "Empresa{" + "nom=" + nomEmp + ", llistaVaixell=" + llistaVaixell + ", llistaClient=" + llistaClient + ", llistaEmpleat=" + llistaEmpleat + ", llistaVenda=" + llistaVenda + ", llistaLloguer=" + llistaLloguer + ", llistaReparacions=" + llistaReparacions + '}';
+        return "Empresa{" + "nomEmp=" + nomEmp + ", llistaVaixell=" + llistaVaixell + ", llistaClient=" + llistaClient + ", llistaEmpleat=" + llistaEmpleat + ", llistaVenda=" + llistaVenda + ", llistaLloguer=" + llistaLloguer + ", llistaReparacions=" + llistaReparacions + '}';
     }
 
-    public void afegirClient(String numDocument) throws AfegirException {
-        for (Client d : llistaClient) {
-            if (d.getNumDocument().equalsIgnoreCase(numDocument)) {
-                throw new AfegirException("No s'ha afegit, perqué ja existeix" + numDocument);
-            } else {
-                llistaClient.add(d);
-
-            }
+    public void afegirClient(Client client) throws AfegirException {
+        if (llistaClient.containsKey(client.getNumDocument())) {
+            throw new AfegirException("No s'ha afegit, perqué ja existeix" + client.getNumDocument());
         }
-
+        llistaClient.put(client.getNumDocument(), client);
     }
 
     public void afegirVaixell(Vaixell vaixell) throws AfegirException {
-        if (llistaVaixell.contains(vaixell.getMatricula())) {
+        if (llistaVaixell.containsKey(vaixell.getMatricula())) {
             throw new AfegirException("No s'ha afegit, perqué ja existeix" + vaixell.getMatricula());
         }
 
-        llistaVaixell.add(vaixell);
+        llistaVaixell.put(vaixell.getMatricula(), vaixell);
 
     }
 
-    public void afegirEmpleat(String numDocument) throws AfegirException {
-        for (Empleat d : llistaEmpleat) {
-            if (d.getNumDocument().equalsIgnoreCase(numDocument)) {
-                throw new AfegirException("No s'ha afegit, perqué ja existeix" + numDocument);
-            } else {
-                llistaEmpleat.add(d);
+    public void afegirEmpleat(Empleat empleat) throws AfegirException {
+        if (llistaEmpleat.containsKey(empleat.getNumDocument())) {
+            throw new AfegirException("No s'ha afegit, perqué ja existeix" + empleat.getNumDocument());
+        }
+        llistaEmpleat.put(empleat.getNumDocument(), empleat);
+    }
 
+    public HashSet<Model> llistesModels() throws LlistesException {
+        HashSet<Model> llistaModel = new HashSet<>();
+        if (llistaModel.isEmpty()) {
+            throw new LlistesException("La llista de Models està buida");
+        } else {
+            Iterator<Model> models = llistaModel.iterator();
+            while (models.hasNext()) {
+                System.out.println(models.next());
             }
         }
 
+        return llistaModel;
     }
 }
