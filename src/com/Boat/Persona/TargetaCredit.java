@@ -54,6 +54,8 @@ public class TargetaCredit {
     public void setCodiVerificacio(int codiVerificacio) {
         this.codiVerificacio = codiVerificacio;
     }
+    
+    
 
     @Override
     public String toString() {

@@ -94,6 +94,13 @@ public class Empresa {
         this.llistaReparacions = llistaReparacions;
     }
 
+    
+
+    @Override
+    public String toString() {
+        return "Empresa{" + "nom=" + nomEmp + ", llistaVaixell=" + llistaVaixell + ", llistaClient=" + llistaClient + ", llistaEmpleat=" + llistaEmpleat + ", llistaVenda=" + llistaVenda + ", llistaLloguer=" + llistaLloguer + ", llistaReparacions=" + llistaReparacions + '}';
+    }
+    
     public boolean afegirClient(String numDocument) {
         for (Client d : llistaClient) {
             if (d.getNumDocument().equalsIgnoreCase(numDocument)) {
@@ -104,11 +111,6 @@ public class Empresa {
             }
         }
         return false;
-    }
-
-    @Override
-    public String toString() {
-        return "Empresa{" + "nom=" + nomEmp + ", llistaVaixell=" + llistaVaixell + ", llistaClient=" + llistaClient + ", llistaEmpleat=" + llistaEmpleat + ", llistaVenda=" + llistaVenda + ", llistaLloguer=" + llistaLloguer + ", llistaReparacions=" + llistaReparacions + '}';
     }
 
 }
