@@ -5,6 +5,7 @@
  */
 package com.Boat.Empresa;
 
+import com.Boat.Exception.AfegirException;
 import com.Boat.Operacions.Lloguer;
 import com.Boat.Operacions.Reparacions;
 import com.Boat.Operacions.Venda;
@@ -102,16 +103,36 @@ public class Empresa {
         return "Empresa{" + "nom=" + nomEmp + ", llistaVaixell=" + llistaVaixell + ", llistaClient=" + llistaClient + ", llistaEmpleat=" + llistaEmpleat + ", llistaVenda=" + llistaVenda + ", llistaLloguer=" + llistaLloguer + ", llistaReparacions=" + llistaReparacions + '}';
     }
 
-    public boolean afegirClient(String numDocument) {
+    public void afegirClient(String numDocument) throws AfegirException {
         for (Client d : llistaClient) {
             if (d.getNumDocument().equalsIgnoreCase(numDocument)) {
-                return false;
+                throw new AfegirException("No s'ha afegit, perqué ja existeix" + numDocument);
             } else {
                 llistaClient.add(d);
-                return true;
+
             }
         }
-        return false;
+
     }
 
+    public void afegirVaixell(Vaixell vaixell) throws AfegirException {
+        if (llistaVaixell.contains(vaixell.getMatricula())) {
+            throw new AfegirException("No s'ha afegit, perqué ja existeix" + vaixell.getMatricula());
+        }
+
+        llistaVaixell.add(vaixell);
+
+    }
+
+    public void afegirEmpleat(String numDocument) throws AfegirException {
+        for (Empleat d : llistaEmpleat) {
+            if (d.getNumDocument().equalsIgnoreCase(numDocument)) {
+                throw new AfegirException("No s'ha afegit, perqué ja existeix" + numDocument);
+            } else {
+                llistaEmpleat.add(d);
+
+            }
+        }
+
+    }
 }
