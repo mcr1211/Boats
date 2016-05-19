@@ -5,6 +5,7 @@
  */
 package com.Boat.Persona;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -16,6 +17,10 @@ public class Empleat extends Persona {
     protected Date dataAlta;
     protected double sou;
     protected double nomina;
+    
+    
+    ArrayList<Habilitats> llistaHabilitats;
+    
 
     public Empleat(Date dataAlta, double sou, double nomina, String nom, String llinatge, Document document, String numDocument, String adreça, int telefon, String email) {
         super(nom, llinatge, document, numDocument, adreça, telefon, email);
@@ -24,6 +29,26 @@ public class Empleat extends Persona {
         this.nomina = nomina;
     }
 
+    
+    public void afegirHabilitat(Habilitats nova){
+        llistaHabilitats.add(nova);
+        
+    }
+    
+    public ArrayList<Habilitats> mostraHabilitats(){
+        
+        return llistaHabilitats;
+        
+    }
+    
+     public void eliminarHabilitat(Habilitats habilitats) {
+         
+         
+    }
+    
+    
+    
+    
     public Date getDataAlta() {
         return dataAlta;
     }
@@ -52,6 +77,8 @@ public class Empleat extends Persona {
     public String toString() {
         return super.toString() + "Empleat{" + "dataAlta=" + dataAlta + ", sou=" + sou + ", nomina=" + nomina + '}';
     }
+
+   
     
     
 }
