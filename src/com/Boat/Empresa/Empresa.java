@@ -174,5 +174,19 @@ public class Empresa {
             return llistaAturat;
         }
     }
+    
+    public ArrayList<Reparacions> llistaReparacions(String matricula) throws LlistesException{
+        ArrayList<Reparacions> llistaRep = new ArrayList();
+            if(llistaVaixell.containsKey(matricula)){
+                for(Reparacions d: llistaReparacions){
+                    if(matricula.equalsIgnoreCase(matricula)){
+                        llistaRep.add(d);
+                    }
+                }
+            }else if (llistaVaixell.isEmpty()){
+                throw new LlistesException("La llista està buida");
+            }
+            return llistaReparacions;
+    }
 
 }
