@@ -189,4 +189,11 @@ public class Empresa {
             return llistaReparacions;
     }
 
+    
+//    public ArrayList<Vaixell> llistarVaixellsPerPreu(double preuMax,double preuMin){
+//        ArrayList<Vaixell> preuVaixell = new ArrayList();
+//            for(Vaixell d: ){
+//                
+//            }
+//    }
 }
