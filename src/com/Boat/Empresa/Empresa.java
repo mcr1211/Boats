@@ -144,21 +144,35 @@ public class Empresa {
 
         return llistaModel;
     }
-    
-    public ArrayList<Reparacions> llistaReparacionsPendets()throws LlistesException{
+
+    public ArrayList<Reparacions> llistaReparacionsPendets() throws LlistesException {
         ArrayList<Reparacions> llistaPendent = new ArrayList();
-        for(Reparacions d: llistaReparacions){
-            if(d.getEstat() == Estat.PENDENT){
-                llistaPendent.add(d);
+        if (llistaReparacions.isEmpty()) {
+            throw new LlistesException("La llista està buida");
+        } else {
+            for (Reparacions d : llistaReparacions) {
+                if (d.getEstat() == Estat.PENDENT) {
+                    llistaPendent.add(d);
+                }
+
             }
             return llistaPendent;
         }
-        if (llistaReparacions.isEmpty()){
-            throw new LlistesException("La llista està buida");
-        }
-        return llistaPendent;
+
     }
     
-    
-    
+    public ArrayList<Reparacions> llistaReparacionsAturades() throws LlistesException {
+        ArrayList<Reparacions> llistaAturat = new ArrayList();
+        if (llistaReparacions.isEmpty()){
+            throw new LlistesException("La llista està buida.");
+        }else {
+            for (Reparacions d : llistaReparacions) {
+                if (d.getEstat() == Estat.ATURAT) {
+                    llistaAturat.add(d);
+                }
+            }
+            return llistaAturat;
+        }
+    }
+
 }
