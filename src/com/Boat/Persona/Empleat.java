@@ -5,8 +5,11 @@
  */
 package com.Boat.Persona;
 
+import com.Boat.Exception.AfegirException;
+import com.Boat.Exception.LlistesException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 
 /**
  *
@@ -15,10 +18,10 @@ import java.util.Date;
 public class Empleat extends Persona {
     
     protected Date dataAlta;
+
+    
     protected double sou;
     protected double nomina;
-    
-    
     ArrayList<Habilitats> llistaHabilitats;
     
 
@@ -27,27 +30,58 @@ public class Empleat extends Persona {
         this.dataAlta = dataAlta;
         this.sou = sou;
         this.nomina = nomina;
+        llistaHabilitats = new ArrayList<>();
     }
 
     
-    public void afegirHabilitat(Habilitats nova){
-        llistaHabilitats.add(nova);
+    public void afegirHabilitat(Habilitats nova) throws AfegirException {
         
-    }
+        if(llistaHabilitats.contains(nova)){
+            throw new  AfegirException ("No s'ha afegit, perqué ja existeix");
+        } else {
+            llistaHabilitats.add(nova);
+
+        }
+       
+        }
     
-    public ArrayList<Habilitats> mostraHabilitats(){
+     public void eliminarHabilitat(Habilitats habilitat) {
+         
+         Iterator<Habilitats> it = llistaHabilitats.iterator();
+         
+         while(it.hasNext()){
+             Habilitats elemento = it.next();
+             if (elemento == habilitat){
+                 it.remove();
+         }
+         
+        }
+     }
+     
+     public ArrayList<Habilitats> mostraHabilitats() throws LlistesException{
+         
+         if(llistaHabilitats.isEmpty()){
+             throw new LlistesException("La llista esta buida");
+             
+         } else {
+             getLlistaHabilitats();
+         }
+         return llistaHabilitats;
+
+     
+     }
+    
+    public ArrayList<Habilitats> getLlistaHabilitats()  {
+        
+        
         
         return llistaHabilitats;
-        
     }
-    
-     public void eliminarHabilitat(Habilitats habilitats) {
-         
-         
+
+    public void setLlistaHabilitats(ArrayList<Habilitats> llistaHabilitats) {
+        this.llistaHabilitats = llistaHabilitats;
     }
-    
-    
-    
+
     
     public Date getDataAlta() {
         return dataAlta;
