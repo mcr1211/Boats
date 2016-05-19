@@ -6,11 +6,13 @@
 package com.Boat.Principal;
 
 import com.Boat.Empresa.Empresa;
+import com.Boat.Model.Model;
 import com.Boat.Persona.Client;
 import com.Boat.Persona.Document;
 import com.Boat.Persona.Patro;
 import com.Boat.Persona.Persona;
 import com.Boat.Persona.TargetaCredit;
+import com.Boat.Vaixell.Vaixell;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +45,10 @@ public class Main {
         p = new Persona("elio","camison",Document.DNI,"321321k","c/ca",9999,"elio@camison.com"+"\n");
         mp.put("321321k", p);
         System.out.println(mp.toString());
+        
+        // Objectes Vaixell
+        Model model1 = new Model("25","3","9",3.5);
+//        Vaixell zodiac = new Vaixell("Zodiac",model1,"215","Toni",);
     }
     
 }
