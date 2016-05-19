@@ -15,7 +15,7 @@ public class Veler extends Model {
     private int numPals;
     private int numCabines;
 
-    public Veler(int numCasc, int numPals, int numCabines, String manega, String eslora, String calat, double preu) {
+    public Veler(int numCasc, int numPals, int numCabines, float manega, float eslora, float calat, float preu) {
         super(manega, eslora, calat, preu);
         this.numCasc = numCasc;
         this.numPals = numPals;
