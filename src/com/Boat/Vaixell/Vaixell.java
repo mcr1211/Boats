@@ -6,6 +6,7 @@
 package com.Boat.Vaixell;
 
 import com.Boat.Model.Model;
+import com.Boat.Operacions.Estat;
 import java.util.Date;
 
 /**
@@ -20,14 +21,16 @@ public class Vaixell {
     private String propietari;
     private boolean llogar;
     private Date disponible;
+    private Estat estat;
 
-    public Vaixell(String marca, Model model, String matricula, String propietari, boolean llogar, Date disponible) {
+    public Vaixell(String marca, Model model, String matricula, String propietari, boolean llogar, Date disponible, Estat estat) {
         this.marca = marca;
         this.model = model;
         this.matricula = matricula;
         this.propietari = propietari;
         this.llogar = llogar;
         this.disponible = disponible;
+        this.estat = estat;
     }
 
     public String getMarca() {
@@ -36,6 +39,14 @@ public class Vaixell {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public Estat getEstat() {
+        return estat;
+    }
+
+    public void setEstat(Estat estat) {
+        this.estat = estat;
     }
 
     public Model getModel() {

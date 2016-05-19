@@ -8,6 +8,7 @@ package com.Boat.Empresa;
 import com.Boat.Exception.AfegirException;
 import com.Boat.Exception.LlistesException;
 import com.Boat.Model.Model;
+import com.Boat.Operacions.Estat;
 import com.Boat.Operacions.Lloguer;
 import com.Boat.Operacions.Reparacions;
 import com.Boat.Operacions.Venda;
@@ -143,4 +144,21 @@ public class Empresa {
 
         return llistaModel;
     }
+    
+    public ArrayList<Reparacions> llistaReparacionsPendets()throws LlistesException{
+        ArrayList<Reparacions> llistaPendent = new ArrayList();
+        for(Reparacions d: llistaReparacions){
+            if(d.getEstat() == Estat.PENDENT){
+                llistaPendent.add(d);
+            }
+            return llistaPendent;
+        }
+        if (llistaReparacions.isEmpty()){
+            throw new LlistesException("La llista està buida");
+        }
+        return llistaPendent;
+    }
+    
+    
+    
 }

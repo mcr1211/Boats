@@ -11,6 +11,6 @@ package com.Boat.Operacions;
  */
 public enum Estat {
     
-    ATURAT, ACABAT, INICIAT
+    ATURAT, ACABAT, INICIAT, PENDENT
     
 }
