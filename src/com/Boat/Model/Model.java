@@ -11,49 +11,51 @@ package com.Boat.Model;
  */
 public class Model {
     
-    protected String manega;
-    protected String eslora;
-    protected String calat;
-    protected double preu;
+    protected float manega;
+    protected float eslora;
+    protected float calat;
+    protected float preu;
 
-    public Model(String manega, String eslora, String calat, double preu) {
+    public Model(float manega, float eslora, float calat, float preu) {
         this.manega = manega;
         this.eslora = eslora;
         this.calat = calat;
         this.preu = preu;
     }
 
-    public String getManega() {
+    public float getManega() {
         return manega;
     }
 
-    public void setManega(String manega) {
+    public void setManega(float manega) {
         this.manega = manega;
     }
 
-    public String getEslora() {
+    public float getEslora() {
         return eslora;
     }
 
-    public void setEslora(String eslora) {
+    public void setEslora(float eslora) {
         this.eslora = eslora;
     }
 
-    public String getCalat() {
+    public float getCalat() {
         return calat;
     }
 
-    public void setCalat(String calat) {
+    public void setCalat(float calat) {
         this.calat = calat;
     }
 
-    public double getPreu() {
+    public float getPreu() {
         return preu;
     }
 
-    public void setPreu(double preu) {
+    public void setPreu(float preu) {
         this.preu = preu;
     }
+
+
 
     @Override
     public String toString() {
