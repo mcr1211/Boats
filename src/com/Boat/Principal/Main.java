@@ -6,6 +6,7 @@
 package com.Boat.Principal;
 
 import com.Boat.Empresa.Empresa;
+import com.Boat.Model.Iot;
 import com.Boat.Model.Model;
 import com.Boat.Persona.Client;
 import com.Boat.Persona.Document;
@@ -27,6 +28,11 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
+        Iot Ancora = new Iot(4,100,100,true,20,290,100,28580);
+        Iot Malvina = new Iot(7,200,300,true,20,295.8f,100,30000);
+
         
         
        
