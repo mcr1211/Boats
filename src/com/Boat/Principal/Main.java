@@ -69,7 +69,7 @@ public class Main {
         System.out.println(mp.toString());
         
         // Objectes Vaixell
-        Model model1 = new Model("25","3","9",3.5);
+//        Model model1 = new Model("25","3","9",3.5);
 //        Vaixell zodiac = new Vaixell("Zodiac",model1,"215","Toni",);
     }
     
