@@ -22,8 +22,9 @@ public class Vaixell {
     private boolean llogar;
     private Date disponible;
     private Estat estat;
+    private double preuLloguer;
 
-    public Vaixell(String marca, Model model, String matricula, String propietari, boolean llogar, Date disponible, Estat estat) {
+    public Vaixell(String marca, Model model, String matricula, String propietari, boolean llogar, Date disponible, Estat estat,double preuLloguer) {
         this.marca = marca;
         this.model = model;
         this.matricula = matricula;
@@ -31,6 +32,7 @@ public class Vaixell {
         this.llogar = llogar;
         this.disponible = disponible;
         this.estat = estat;
+        this.preuLloguer = preuLloguer;
     }
 
     public String getMarca() {
@@ -59,6 +61,14 @@ public class Vaixell {
 
     public String getMatricula() {
         return matricula;
+    }
+
+    public double getPreuLloguer() {
+        return preuLloguer;
+    }
+
+    public void setPreuLloguer(double preuLloguer) {
+        this.preuLloguer = preuLloguer;
     }
 
     public void setMatricula(String matricula) {

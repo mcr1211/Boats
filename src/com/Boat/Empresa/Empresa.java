@@ -133,13 +133,14 @@ public class Empresa {
 
     public HashSet<Model> llistesModels() throws LlistesException {
         HashSet<Model> llistaModel = new HashSet<>();
-        if (llistaModel.isEmpty()) {
-            throw new LlistesException("La llista de Models està buida");
-        } else {
-            Iterator<Model> models = llistaModel.iterator();
+        Iterator<Model> models = llistaModel.iterator();
             while (models.hasNext()) {
                 System.out.println(models.next());
             }
+            if (llistaModel.isEmpty()) {
+            throw new LlistesException("La llista de Models està buida");
+            
+        
         }
 
         return llistaModel;
@@ -189,11 +190,8 @@ public class Empresa {
             return llistaReparacions;
     }
 
-    
-//    public ArrayList<Vaixell> llistarVaixellsPerPreu(double preuMax,double preuMin){
-//        ArrayList<Vaixell> preuVaixell = new ArrayList();
-//            for(Vaixell d: ){
-//                
-//            }
+//    public ArrayList<Model> llistaVaixellPreu (double preuMax, double preuMin){
+//        ArrayList<Model> llistaPerPreu = new ArrayList();
 //    }
-}
+    
+    }
