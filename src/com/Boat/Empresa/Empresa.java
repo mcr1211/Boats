@@ -134,13 +134,12 @@ public class Empresa {
     public HashSet<Model> llistesModels() throws LlistesException {
         HashSet<Model> llistaModel = new HashSet<>();
         Iterator<Model> models = llistaModel.iterator();
-            while (models.hasNext()) {
-                System.out.println(models.next());
-            }
-            if (llistaModel.isEmpty()) {
+        while (models.hasNext()) {
+            System.out.println(models.next());
+        }
+        if (llistaModel.isEmpty()) {
             throw new LlistesException("La llista de Models està buida");
-            
-        
+
         }
 
         return llistaModel;
@@ -161,12 +160,12 @@ public class Empresa {
         }
 
     }
-    
+
     public ArrayList<Reparacions> llistaReparacionsAturades() throws LlistesException {
         ArrayList<Reparacions> llistaAturat = new ArrayList();
-        if (llistaReparacions.isEmpty()){
+        if (llistaReparacions.isEmpty()) {
             throw new LlistesException("La llista està buida.");
-        }else {
+        } else {
             for (Reparacions d : llistaReparacions) {
                 if (d.getEstat() == Estat.ATURAT) {
                     llistaAturat.add(d);
@@ -175,23 +174,33 @@ public class Empresa {
             return llistaAturat;
         }
     }
-    
-    public ArrayList<Reparacions> llistaReparacions(String matricula) throws LlistesException{
+
+    public ArrayList<Reparacions> llistaReparacions(String matricula) throws LlistesException {
         ArrayList<Reparacions> llistaRep = new ArrayList();
-            if(llistaVaixell.containsKey(matricula)){
-                for(Reparacions d: llistaReparacions){
-                    if(matricula.equalsIgnoreCase(matricula)){
-                        llistaRep.add(d);
-                    }
+        if (llistaVaixell.containsKey(matricula)) {
+            for (Reparacions d : llistaReparacions) {
+                if (matricula.equalsIgnoreCase(matricula)) {
+                    llistaRep.add(d);
                 }
-            }else if (llistaVaixell.isEmpty()){
-                throw new LlistesException("La llista està buida");
             }
-            return llistaReparacions;
+        } else if (llistaVaixell.isEmpty()) {
+            throw new LlistesException("La llista està buida");
+        }
+        return llistaReparacions;
     }
 
-//    public ArrayList<Model> llistaVaixellPreu (double preuMax, double preuMin){
-//        ArrayList<Model> llistaPerPreu = new ArrayList();
-//    }
-    
+    public ArrayList<Model> llistarTipusEmb(Model tipus) throws LlistesException{
+        ArrayList<Model> tipusEmb = new ArrayList();
+        
+        Iterator it = llistaVaixell.entrySet().iterator();
+            while(it.hasNext()){
+                Map.Entry e =(Map.Entry)it.next();
+                if(tipus.getClass().equals(llistaVaixell.getClass())){
+                    
+                }
+            }if(tipusEmb.isEmpty()){
+                throw new LlistesException("La llista està buida");
+            }
+        return tipusEmb;
     }
+}
