@@ -5,6 +5,7 @@
  */
 package com.Boat.Persona;
 
+import com.Boat.Exception.PersonaException;
 import java.util.Objects;
 
 /**
@@ -35,16 +36,24 @@ public class Persona {
         return nom;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNom(String nom) throws PersonaException {
+        if("".equals(nom)){
+            throw new PersonaException("Falta el nom de la persona.");
+        }else {
+            this.nom=nom;
+        }
     }
 
     public String getLlinatge() {
         return llinatge;
     }
 
-    public void setLlinatge(String llinatge) {
-        this.llinatge = llinatge;
+    public void setLlinatge(String llinatge) throws PersonaException {
+        if("".equals(llinatge)){
+            throw new PersonaException("Falta el llinatge de la persona.");
+        }else {
+            this.llinatge = llinatge;
+        }
     }
 
     public Document getDocument() {
@@ -59,8 +68,12 @@ public class Persona {
         return numDocument;
     }
 
-    public void setNumDocument(String numDocument) {
-        this.numDocument = numDocument;
+    public void setNumDocument(String numDocument) throws PersonaException {
+        if("".equals(numDocument)){
+            throw new PersonaException("Falta el número de document de la persona.");
+        }else{
+            this.numDocument=numDocument;
+        }
     }
 
     public String getAdreça() {
