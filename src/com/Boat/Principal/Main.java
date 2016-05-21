@@ -6,7 +6,10 @@
 package com.Boat.Principal;
 
 import com.Boat.Empresa.Empresa;
+import com.Boat.Model.Iot;
 import com.Boat.Model.Model;
+import com.Boat.Model.Motora;
+import com.Boat.Model.Veler;
 import com.Boat.Persona.Client;
 import com.Boat.Persona.Document;
 import com.Boat.Persona.Patro;
@@ -29,6 +32,25 @@ public class Main {
         // TODO code application logic here
         
         
+        Iot Ancora = new Iot(4,100,100,true,20,290,100,28580);
+        Iot Malvina = new Iot(7,200,300,true,20,295.8f,100,30000);
+        
+        
+        Motora motoAquatica1 = new Motora(300,458,true,10,8,1,2800); 
+        Motora motoAquatica2 = new Motora(300,458,true,10,8,1,2800); 
+        
+        Veler interceptor = new Veler(2,8,4,400,300,9,450580);
+        Veler humulusErrante = new Veler(8,7,9,480,428,9,550588);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
        
         TargetaCredit visa  = new TargetaCredit(23,5,5,10);
         Client num1 = new Client("pep","misto",Document.DNI,"4564554f","c/sol",12345,"pep@misto.com",visa);
@@ -47,7 +69,7 @@ public class Main {
         System.out.println(mp.toString());
         
         // Objectes Vaixell
-        Model model1 = new Model("25","3","9",3.5);
+//        Model model1 = new Model("25","3","9",3.5);
 //        Vaixell zodiac = new Vaixell("Zodiac",model1,"215","Toni",);
     }
     

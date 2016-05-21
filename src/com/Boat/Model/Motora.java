@@ -15,7 +15,7 @@ public class Motora extends Model{
     private int volumDiposit;
     private boolean motorAuxiliar;
 
-    public Motora(int potencia, int volumDiposit, boolean motorAuxiliar, String manega, String eslora, String calat, double preu) {
+    public Motora(int potencia, int volumDiposit, boolean motorAuxiliar, float manega, float eslora, float calat, float preu) {
         super(manega, eslora, calat, preu);
         this.potencia = potencia;
         this.volumDiposit = volumDiposit;

@@ -16,7 +16,7 @@ public class Iot extends Model {
     private int autonomia;
     private boolean bodega;
 
-    public Iot(int numCamarot, int potenciaMotor, int autonomia, boolean bodega, String manega, String eslora, String calat, double preu) {
+    public Iot(int numCamarot, int potenciaMotor, int autonomia, boolean bodega, float manega, float eslora, float calat, float preu) {
         super(manega, eslora, calat, preu);
         this.numCamarot = numCamarot;
         this.potenciaMotor = potenciaMotor;
