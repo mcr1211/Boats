@@ -24,10 +24,8 @@ public class Reparacions {
     private Estat estat;
     private Vaixell vaixell;
     private double preu;
-    private int numRecuperacio;
 
-    public Reparacions(String lloc, Date dataInici, Date dataFi, String descripcio, Estat estat, Vaixell vaixell, double preu, int numRecuperacio) {
-        this.treballadors = treballadors;
+    public Reparacions(String lloc, Date dataInici, Date dataFi, String descripcio, Estat estat, Vaixell vaixell, double preu) {
         this.lloc = lloc;
         this.dataInici = dataInici;
         this.dataFi = dataFi;
@@ -35,7 +33,7 @@ public class Reparacions {
         this.estat = estat;
         this.vaixell = vaixell;
         this.preu = preu;
-        this.numRecuperacio = numRecuperacio;
+        this.treballadors = new ArrayList<Taller>();
     }
 
     public ArrayList<Taller> getTreballadors() {
@@ -102,17 +100,12 @@ public class Reparacions {
         this.preu = preu;
     }
 
-    public int getNumRecuperacio() {
-        return numRecuperacio;
+    public void afegirTaller(Taller t) {
+        treballadors.add(t);
     }
 
-    public void setNumRecuperacio(int numRecuperacio) {
-        this.numRecuperacio = numRecuperacio;
-    }
-
-    @Override
-    public String toString() {
-        return "Reparacions{" + "treballadors=" + treballadors + ", lloc=" + lloc + ", dataInici=" + dataInici + ", dataFi=" + dataFi + ", descripcio=" + descripcio + ", estat=" + estat + ", vaixell=" + vaixell + ", preu=" + preu + ", numRecuperacio=" + numRecuperacio + '}';
+    public void eliminarTaller(Taller t) {
+        treballadors.remove(t);
     }
 
 }

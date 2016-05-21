@@ -13,6 +13,7 @@ import com.Boat.Operacions.Lloguer;
 import com.Boat.Operacions.Reparacions;
 import com.Boat.Operacions.Venda;
 import com.Boat.Persona.Client;
+import com.Boat.Persona.Comercial;
 import com.Boat.Persona.Document;
 import com.Boat.Persona.Empleat;
 import com.Boat.Persona.Persona;
@@ -124,11 +125,11 @@ public class Empresa {
 
     }
 
-    public void afegirEmpleat(Empleat empleat) throws AfegirException {
-        if (llistaEmpleat.containsKey(empleat.getNumDocument())) {
-            throw new AfegirException("No s'ha afegit, perqué ja existeix" + empleat.getNumDocument());
+    public void afegirComercial(Comercial comercial) throws AfegirException {
+        if (llistaEmpleat.containsKey(comercial.getNumDocument())) {
+            throw new AfegirException("No s'ha afegit, perqué ja existeix" + comercial.getNumDocument());
         }
-        llistaEmpleat.put(empleat.getNumDocument(), empleat);
+        llistaEmpleat.put(comercial.getNumDocument(), comercial);
     }
 
     public HashSet<Model> llistesModels() throws LlistesException {
