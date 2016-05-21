@@ -18,7 +18,7 @@ public class Taller extends Empleat {
     private ArrayList<Habilitats> skill;
 
     public Taller(Date dataAlta, double sou, double nomina, String nom, String llinatge, Document document, String numDocument, String adreça, int telefon, String email) {
-        super(dataAlta, sou, nomina, nom, llinatge, document, numDocument, adreça, telefon, email);
+        super(dataAlta, nomina, nom, llinatge, document, numDocument, adreça, telefon, email);
 
         this.skill = new ArrayList<Habilitats>();
 

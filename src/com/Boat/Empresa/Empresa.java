@@ -19,6 +19,7 @@ import com.Boat.Persona.Empleat;
 import com.Boat.Persona.Persona;
 import com.Boat.Vaixell.Vaixell;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -197,11 +198,46 @@ public class Empresa {
             while(it.hasNext()){
                 Map.Entry e =(Map.Entry)it.next();
                 if(tipus.getClass().equals(llistaVaixell.getClass())){
-                    
+                    tipusEmb.add(tipus);
                 }
             }if(tipusEmb.isEmpty()){
                 throw new LlistesException("La llista està buida");
             }
         return tipusEmb;
     }
+    
+    public ArrayList<Vaixell> llistarEmbPerPreu (double preuMax, double preuMin) throws LlistesException{
+        ArrayList<Vaixell> llistaPreus = new ArrayList();
+        
+        Iterator it = llistaVaixell.entrySet().iterator();
+            while(it.hasNext()){
+                Map.Entry e = (Map.Entry) it.next();
+                Vaixell barco = llistaVaixell.get(e.getKey());
+                if(barco.getPreuLloguer()>preuMin && barco.getPreuLloguer()< preuMax){
+                    llistaPreus.add(barco);
+                }
+            }if(llistaPreus.isEmpty()){
+                throw new LlistesException("La llista està buida");
+            }
+            return llistaPreus;
+    }
+    
+//    public ArrayList<Vaixell> llistaEmbDisponibles(Date inici, Date fi){
+//        ArrayList<Vaixell> embDispo = new ArrayList();
+//        Iterator it = llistaVaixell.entrySet().iterator();
+//            while(it.hasNext()){
+//                Map.Entry e = (Map.Entry) it.next();
+//            }
+//    }
+    
+//    public Empleat ferNomina(String numDocument){
+//        if(llistaEmpleat.containsKey(numDocument)){
+//            for(Venda d:llistaVenda){
+//                if(d.getComercial().equals(llistaEmpleat.get(numDocument))){
+//                    
+//                }
+//            }
+//        }
+//    }
+//    
 }

@@ -25,23 +25,23 @@ public class edgar {
     
     Date dita = new Date();
         
-        Empleat yo = new Empleat(dita,1000,10000,"yo","segon",Document.DNI,"4321898701j","calle 1",800,"yo@gmail.com");
-        Empleat paula = new Empleat(dita,1000,10000,"paula","segon",Document.DNI,"432189802j","calle 1",801,"paula@gmail.com");
+//        Empleat yo = new Empleat(dita,1000,10000,"yo","segon",Document.DNI,"4321898701j","calle 1",800,"yo@gmail.com");
+//        Empleat paula = new Empleat(dita,1000,10000,"paula","segon",Document.DNI,"432189802j","calle 1",801,"paula@gmail.com");
 
         
-        try {
+//        try {
             
         //yo.afegirHabilitat(VIDRE);
         //yo.afegirHabilitat(VELA);
         //yo.afegirHabilitat(VIDRE);
 
-        System.out.println(yo.getNom() + " te habilitat: "+ yo.getLlistaHabilitats());
-        
-        yo.mostraHabilitats();
-        
-        } catch(LlistesException e){
-            e.printStackTrace();
-        } //catch (AfegirException e) {
+//        System.out.println(yo.getNom() + " te habilitat: "+ yo.getLlistaHabilitats());
+//        
+//        yo.mostraHabilitats();
+//        
+//        } catch(LlistesException e){
+//            e.printStackTrace();
+//        } //catch (AfegirException e) {
           //  e.printStackTrace();
 
         //}
