@@ -6,6 +6,7 @@
 package com.Boat.Empresa;
 
 import com.Boat.Exception.AfegirException;
+import com.Boat.Exception.EliminarException;
 import com.Boat.Exception.LlistesException;
 import com.Boat.Model.Model;
 import com.Boat.Operacions.Estat;
@@ -18,6 +19,7 @@ import com.Boat.Persona.Document;
 import com.Boat.Persona.Empleat;
 import com.Boat.Persona.Patro;
 import com.Boat.Persona.Persona;
+import com.Boat.Persona.Taller;
 import com.Boat.Vaixell.Vaixell;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,19 +37,23 @@ public class Empresa {
     private String nomEmp;
     private HashMap<String, Vaixell> llistaVaixell;
     private HashMap<String, Client> llistaClient;
-    private HashMap<String, Empleat> llistaEmpleat;
+    private HashMap<String, Comercial> llistaComercial;
     private ArrayList<Venda> llistaVenda;
     private ArrayList<Lloguer> llistaLloguer;
     private ArrayList<Reparacions> llistaReparacions;
+    private HashMap<String, Patro> llistaPatro;
+    private HashMap<String, Taller> llistaTaller;
 
     public Empresa(String nom) {
         this.nomEmp = nomEmp;
         llistaVaixell = new HashMap<>();
         llistaClient = new HashMap<>();
-        llistaEmpleat = new HashMap<>();
+        llistaComercial = new HashMap<>();
         llistaVenda = new ArrayList<>();
         llistaLloguer = new ArrayList<>();
         llistaReparacions = new ArrayList<>();
+        llistaPatro = new HashMap<>();
+        llistaTaller = new HashMap<>();
     }
 
     public String getNomEmp() {
@@ -74,12 +80,12 @@ public class Empresa {
         this.llistaClient = llistaClient;
     }
 
-    public HashMap<String, Empleat> getLlistaEmpleat() {
-        return llistaEmpleat;
+    public HashMap<String, Comercial> getLlistaEmpleat() {
+        return llistaComercial;
     }
 
-    public void setLlistaEmpleat(HashMap<String, Empleat> llistaEmpleat) {
-        this.llistaEmpleat = llistaEmpleat;
+    public void setLlistaEmpleat(HashMap<String, Comercial> llistaEmpleat) {
+        this.llistaComercial = llistaComercial;
     }
 
     public ArrayList<Venda> getLlistaVenda() {
@@ -108,7 +114,7 @@ public class Empresa {
 
     @Override
     public String toString() {
-        return "Empresa{" + "nomEmp=" + nomEmp + ", llistaVaixell=" + llistaVaixell + ", llistaClient=" + llistaClient + ", llistaEmpleat=" + llistaEmpleat + ", llistaVenda=" + llistaVenda + ", llistaLloguer=" + llistaLloguer + ", llistaReparacions=" + llistaReparacions + '}';
+        return "Empresa{" + "nomEmp=" + nomEmp + ", llistaVaixell=" + llistaVaixell + ", llistaClient=" + llistaClient + ", llistaComercial=" + llistaComercial + ", llistaVenda=" + llistaVenda + ", llistaLloguer=" + llistaLloguer + ", llistaReparacions=" + llistaReparacions + '}';
     }
 
     public void afegirClient(Client client) throws AfegirException {
@@ -128,10 +134,66 @@ public class Empresa {
     }
 
     public void afegirComercial(Comercial comercial) throws AfegirException {
-        if (llistaEmpleat.containsKey(comercial.getNumDocument())) {
+        if (llistaComercial.containsKey(comercial.getNumDocument())) {
             throw new AfegirException("No s'ha afegit, perqué ja existeix" + comercial.getNumDocument());
         }
-        llistaEmpleat.put(comercial.getNumDocument(), comercial);
+        llistaComercial.put(comercial.getNumDocument(), comercial);
+    }
+
+    public void afegirPatro(Patro patro) throws AfegirException {
+        if (llistaPatro.containsKey(patro.getNumDocument())) {
+            throw new AfegirException();
+        } else {
+            llistaPatro.put(patro.getNumDocument(), patro);
+        }
+    }
+
+    public void afegirTaller(Taller taller) throws AfegirException {
+        if (llistaTaller.containsKey(taller.getNumDocument())) {
+            throw new AfegirException();
+        } else {
+            llistaTaller.put(taller.getNumDocument(), taller);
+        }
+    }
+
+    public void eliminarClient(String numDocument) throws EliminarException {
+        if (llistaClient.remove(numDocument) == null) {
+            throw new EliminarException();
+        } else {
+            llistaClient.remove(numDocument);
+        }
+    }
+
+    public void eliminarVaixell(String matricula) throws EliminarException {
+        if (llistaVaixell.remove(matricula) == null) {
+            throw new EliminarException();
+        } else {
+            llistaVaixell.remove(matricula);
+        }
+    }
+
+    public void eliminarComercial(String numDocument) throws EliminarException {
+        if (llistaComercial.remove(numDocument) == null) {
+            throw new EliminarException();
+        } else {
+            llistaComercial.remove(numDocument);
+        }
+    }
+
+    public void eliminarTaller(String numDocument) throws EliminarException {
+        if (llistaTaller.remove(numDocument) == null) {
+            throw new EliminarException();
+        } else {
+            llistaTaller.remove(numDocument);
+        }
+    }
+
+    public void eliminarPatro(String numDocument) throws EliminarException {
+        if (llistaPatro.remove(numDocument) == null) {
+            throw new EliminarException();
+        } else {
+            llistaPatro.remove(numDocument);
+        }
     }
     
    
@@ -194,37 +256,39 @@ public class Empresa {
         return llistaReparacions;
     }
 
-    public ArrayList<Model> llistarTipusEmb(Model tipus) throws LlistesException{
+    public ArrayList<Model> llistarTipusEmb(Model tipus) throws LlistesException {
         ArrayList<Model> tipusEmb = new ArrayList();
-        
+
         Iterator it = llistaVaixell.entrySet().iterator();
-            while(it.hasNext()){
-                Map.Entry e =(Map.Entry)it.next();
-                if(tipus.getClass().equals(llistaVaixell.getClass())){
-                    tipusEmb.add(tipus);
-                }
-            }if(tipusEmb.isEmpty()){
-                throw new LlistesException("La llista està buida");
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry) it.next();
+            if (tipus.getClass().equals(llistaVaixell.getClass())) {
+                tipusEmb.add(tipus);
             }
+        }
+        if (tipusEmb.isEmpty()) {
+            throw new LlistesException("La llista està buida");
+        }
         return tipusEmb;
     }
-    
-    public ArrayList<Vaixell> llistarEmbPerPreu (double preuMax, double preuMin) throws LlistesException{
+
+    public ArrayList<Vaixell> llistarEmbPerPreu(double preuMax, double preuMin) throws LlistesException {
         ArrayList<Vaixell> llistaPreus = new ArrayList();
-        
+
         Iterator it = llistaVaixell.entrySet().iterator();
-            while(it.hasNext()){
-                Map.Entry e = (Map.Entry) it.next();
-                Vaixell barco = llistaVaixell.get(e.getKey());
-                if(barco.getPreuLloguer()>preuMin && barco.getPreuLloguer()< preuMax){
-                    llistaPreus.add(barco);
-                }
-            }if(llistaPreus.isEmpty()){
-                throw new LlistesException("La llista està buida");
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry) it.next();
+            Vaixell barco = llistaVaixell.get(e.getKey());
+            if (barco.getPreuLloguer() > preuMin && barco.getPreuLloguer() < preuMax) {
+                llistaPreus.add(barco);
             }
-            return llistaPreus;
+        }
+        if (llistaPreus.isEmpty()) {
+            throw new LlistesException("La llista està buida");
+        }
+        return llistaPreus;
     }
-    
+
 //    public ArrayList<Vaixell> llistaEmbDisponibles(Date inici, Date fi){
 //        ArrayList<Vaixell> embDispo = new ArrayList();
 //        Iterator it = llistaVaixell.entrySet().iterator();
@@ -232,7 +296,6 @@ public class Empresa {
 //                Map.Entry e = (Map.Entry) it.next();
 //            }
 //    }
-    
 //    public Empleat ferNomina(String numDocument){
 //        if(llistaEmpleat.containsKey(numDocument)){
 //            for(Venda d:llistaVenda){
