@@ -16,7 +16,9 @@ import com.Boat.Persona.Client;
 import com.Boat.Persona.Comercial;
 import com.Boat.Persona.Document;
 import com.Boat.Persona.Empleat;
+import com.Boat.Persona.Patro;
 import com.Boat.Persona.Persona;
+import com.Boat.Persona.Taller;
 import com.Boat.Vaixell.Vaixell;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,6 +40,8 @@ public class Empresa {
     private ArrayList<Venda> llistaVenda;
     private ArrayList<Lloguer> llistaLloguer;
     private ArrayList<Reparacions> llistaReparacions;
+    private HashMap<String, Patro> llistaPatro;
+    private HashMap<String, Taller> llistaTaller;
 
     public Empresa(String nom) {
         this.nomEmp = nomEmp;
@@ -47,6 +51,8 @@ public class Empresa {
         llistaVenda = new ArrayList<>();
         llistaLloguer = new ArrayList<>();
         llistaReparacions = new ArrayList<>();
+        llistaPatro=new HashMap<>();
+        llistaTaller=new HashMap<>();
     }
 
     public String getNomEmp() {
@@ -131,6 +137,22 @@ public class Empresa {
             throw new AfegirException("No s'ha afegit, perqué ja existeix" + comercial.getNumDocument());
         }
         llistaEmpleat.put(comercial.getNumDocument(), comercial);
+    }
+    
+    public void afegirPatro(Patro patro) throws AfegirException {
+        if(llistaPatro.containsKey(patro.getNumDocument())){
+            throw new AfegirException();
+        }else{
+            llistaPatro.put(patro.getNumDocument(),patro);
+        }
+    }
+    
+    public void afegirTaller(Taller taller) throws AfegirException {
+        if (llistaTaller.containsKey(taller.getNumDocument())){
+            throw new AfegirException();
+        }else{
+            llistaTaller.put(taller.getNumDocument(), taller);
+        }
     }
 
     public HashSet<Model> llistesModels() throws LlistesException {
