@@ -18,38 +18,42 @@ public class Nomina {
 
     private double sou;
     private int comisio;
-    private int irpf=4;
+    private int irpf = 4;
     private double totalDeduir;
     private double totalRetencio;
     private double liquidacio;
 
-    public double calcularNomina(Empleat persona) throws NominaException {
+    public double calcularNomina(Empleat empleat) throws NominaException {
         ArrayList<Venda> llistaVendes = new ArrayList();
-        
-        if(persona instanceof Comercial){
+
+        if (empleat instanceof Comercial) {
             for (Venda d : llistaVendes) {
-            if (llistaVendes.contains(persona.getNumDocument())) {
-                llistaVendes.add(d);
+                if (llistaVendes.contains(empleat.getNumDocument())) {
+                    llistaVendes.add(d);
+                }
+                llistaVendes.size();
             }
-            llistaVendes.size();
+            if (llistaVendes.size() == 0) {
+                throw new NominaException("Aquest venedor es un vago.");
+            }
+            if (llistaVendes.size() >= 1 && llistaVendes.size() <= 5) {
+                comisio = 5;
+            }
+            if (llistaVendes.size() >= 6 && llistaVendes.size() <= 10) {
+                comisio = 10;
+            }
+            if (llistaVendes.size() > 10) {
+                comisio = 15;
+            }
+            totalDeduir = sou + (sou * comisio / 100);
+            totalRetencio = totalDeduir * (irpf / 100);
+            liquidacio = totalDeduir - totalRetencio;
+        } else if (empleat instanceof Taller) {
+            totalDeduir = sou;
+            totalRetencio = totalDeduir * (irpf / 100);
+            liquidacio = totalDeduir - totalRetencio;
         }
-        if (llistaVendes.size() == 0) {
-            throw new NominaException("Aquest venedor es un vago.");
-        }
-        if (llistaVendes.size()>=1&&llistaVendes.size()<=5){
-            comisio=5;
-        }
-        if (llistaVendes.size()>=6&&llistaVendes.size()<=10){
-            comisio=10;
-        }
-        if (llistaVendes.size()>10){
-            comisio=15;
-        }
-        totalDeduir=sou+(sou*comisio/100);
-        totalRetencio=totalDeduir*(irpf/100);
-        liquidacio=totalDeduir-totalRetencio;
-        }
-        
+
         return liquidacio;
     }
 }
