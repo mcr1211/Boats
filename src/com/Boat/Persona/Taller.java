@@ -5,7 +5,7 @@
  */
 package com.Boat.Persona;
 
-import com.Boat.Exception.habilitatException;
+import com.Boat.Exception.HabilitatException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,7 +17,7 @@ public class Taller extends Empleat {
 
     private ArrayList<Habilitats> skill;
 
-    public Taller(Date dataAlta, double nomina, String nom, String llinatge, Document document, String numDocument, String adreça, int telefon, String email,Habilitats skill) {
+    public Taller(Date dataAlta, Nomina nomina, String nom, String llinatge, Document document, String numDocument, String adreça, int telefon, String email,Habilitats skill) {
         super(dataAlta, nomina, nom, llinatge, document, numDocument, adreça, telefon, email);
 
         this.skill = new ArrayList<Habilitats>();
@@ -32,22 +32,22 @@ public class Taller extends Empleat {
         this.skill = skill;
     }
 
-    public void afegirSkill(Habilitats s) throws habilitatException {
+    public void afegirSkill(Habilitats s) throws HabilitatException {
         if (skill.isEmpty()) {
             skill.add(s);
         }
         if (skill.contains(s)) {
-            throw new habilitatException("Aquesta habilitat ja està posada.");
+            throw new HabilitatException("Aquesta habilitat ja està posada.");
         } else {
             skill.add(s);
         }
     }
 
-    public void eliminarSkill(Habilitats s) throws habilitatException {
+    public void eliminarSkill(Habilitats s) throws HabilitatException {
         if(skill.contains(s)){
             skill.remove(s);
         }else{
-            throw new habilitatException("Aquesta habilitat no està posada.");
+            throw new HabilitatException("Aquesta habilitat no està posada.");
         }
     }
 
