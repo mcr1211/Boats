@@ -15,7 +15,7 @@ public class Comercial extends Empleat {
 
     private int comissio;
 
-    public Comercial(int comissio, Date dataAlta, double sou, double nomina, String nom, String llinatge, Document document, String numDocument, String adreça, int telefon, String email) {
+    public Comercial(int comissio, Date dataAlta, double nomina, String nom, String llinatge, Document document, String numDocument, String adreça, int telefon, String email) {
         super(dataAlta, nomina, nom, llinatge, document, numDocument, adreça, telefon, email);
         this.comissio = comissio;
     }

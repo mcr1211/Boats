@@ -16,7 +16,9 @@ import com.Boat.Model.Iot;
 import com.Boat.Model.Model;
 import com.Boat.Model.Motora;
 import com.Boat.Model.Veler;
+import com.Boat.Operacions.Estat;
 import com.Boat.Persona.Client;
+import com.Boat.Persona.Comercial;
 import com.Boat.Persona.Document;
 import com.Boat.Persona.Habilitats;
 import com.Boat.Persona.Patro;
@@ -48,6 +50,16 @@ public class Main {
 //        
 //        Taller Toni = new Taller(d1,999.99,"Toni","Dalmau",Document.DNI,"43194116R","C/ Sol nº5",620354389,"tonid@gmail.com",Habilitats.MECANICA);
 //        
+//        Comercial Edgar = new Comercial(10,d1,1499.99,"Edgar","Robayo",Document.DNI,"43195117T","C/Lluna nº7",621354388,"edgar@gmail.com");
+//        
+//        BoatInc.afegirComercial(Edgar);
+//        BoatInc.afegirTaller(Toni);
+//        
+//        TargetaCredit visa = new TargetaCredit(0210026542,12,2017,213);
+//        
+////        Client Tomeu = new Client("Tome","Morro",Document.DNI,43195118Y,"C/Flor nº14",625313678,"tomeu@gmail.com",visa);
+////        Client Biel = new Client("Biel","Recio",Document.DNI,"45987546Q","C/Garriga nº50","bielr@gmail.com","ES210036");
+//        
 //        //Models
 //        Iot Ancora = new Iot(4,100,100,true,20,290,100,28580);
 //        Iot Malvina = new Iot(7,200,300,true,20,295.8f,100,30000);
@@ -58,9 +70,15 @@ public class Main {
 //        Veler interceptor = new Veler(2,8,4,400,300,9,450580);
 //        Veler humulusErrante = new Veler(8,7,9,480,428,9,550588);
 //        
+//        Vaixell vaixell1 = new Vaixell("Feadship",Ancora,"6ª-TA-2-010-12","BOATS INC",true,d1,Estat.ACABAT,200.50);
+//        Vaixell vaixell2 = new Vaixell("Yamaha",motoAquatica1,"6ª-TA-3/12","BOATS INC",false,d1,Estat.ACABAT,75);
+//        Vaixell vaixell3 = new Vaixell("Jeanneau",interceptor,"6ª-TA-058-16","BOATS INC",false,d1,Estat.PENDENT,0);
 //        
+//        BoatInc.afegirVaixell(vaixell1);
+//        BoatInc.afegirVaixell(vaixell2);
+//        BoatInc.afegirVaixell(vaixell3);
 //        
-//        
+//        Patro Marcus = new Patro("Marcus","Demian",Document.PASSAPORT,"1654916054O","",33512686,"marcus@yahoo.fr","Capitán Navio",300);
 //    }
     /**
      * @param args the command line arguments
