@@ -9,13 +9,13 @@ package com.Boat.Exception;
  *
  * @author Toni Dalmau Martínez
  */
-public class habilitatException extends Exception {
+public class HabilitatException extends Exception {
 
     /**
      * Creates a new instance of <code>habilitatException</code> without detail
      * message.
      */
-    public habilitatException() {
+    public HabilitatException() {
     }
 
     /**
@@ -24,7 +24,7 @@ public class habilitatException extends Exception {
      *
      * @param msg the detail message.
      */
-    public habilitatException(String msg) {
+    public HabilitatException(String msg) {
         super(msg);
     }
 }
