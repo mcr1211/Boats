@@ -11,7 +11,7 @@ import com.Boat.Exception.BoatException;
 import com.Boat.Exception.EliminarException;
 import com.Boat.Exception.LlistesException;
 import com.Boat.Exception.PersonaException;
-import com.Boat.Exception.habilitatException;
+import com.Boat.Exception.HabilitatException;
 import com.Boat.Model.Iot;
 import com.Boat.Model.Model;
 import com.Boat.Model.Motora;

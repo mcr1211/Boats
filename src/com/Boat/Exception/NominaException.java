@@ -9,22 +9,22 @@ package com.Boat.Exception;
  *
  * @author Toni Dalmau Martínez
  */
-public class HabilitatException extends Exception {
+public class NominaException extends Exception {
 
     /**
-     * Creates a new instance of <code>habilitatException</code> without detail
+     * Creates a new instance of <code>NominaException</code> without detail
      * message.
      */
-    public HabilitatException() {
+    public NominaException() {
     }
 
     /**
-     * Constructs an instance of <code>habilitatException</code> with the
-     * specified detail message.
+     * Constructs an instance of <code>NominaException</code> with the specified
+     * detail message.
      *
      * @param msg the detail message.
      */
-    public HabilitatException(String msg) {
+    public NominaException(String msg) {
         super(msg);
     }
 }

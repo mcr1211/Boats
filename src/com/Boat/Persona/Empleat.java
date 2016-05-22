@@ -5,6 +5,7 @@
  */
 package com.Boat.Persona;
 
+import com.Boat.Persona.Nomina;
 import com.Boat.Exception.AfegirException;
 import com.Boat.Exception.LlistesException;
 import java.util.ArrayList;
@@ -18,10 +19,10 @@ import java.util.Iterator;
 public class Empleat extends Persona {
 
     protected Date dataAlta;
-    protected double nomina;
+    protected Nomina nomina;
     ArrayList<Habilitats> llistaHabilitats;
 
-    public Empleat(Date dataAlta, double nomina, String nom, String llinatge, Document document, String numDocument, String adreça, int telefon, String email) {
+    public Empleat(Date dataAlta, Nomina nomina, String nom, String llinatge, Document document, String numDocument, String adreça, int telefon, String email) {
         super(nom, llinatge, document, numDocument, adreça, telefon, email);
         this.dataAlta = dataAlta;
         this.nomina = nomina;
@@ -81,17 +82,17 @@ public class Empleat extends Persona {
         this.dataAlta = dataAlta;
     }
 
-    public double getNomina() {
+    public Nomina getNomina() {
         return nomina;
     }
 
-    public void setNomina(double nomina) {
+    public void setNomina(Nomina nomina) {
         this.nomina = nomina;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "Empleat{" + "dataAlta=" + dataAlta +  ", nomina=" + nomina + '}';
+        return super.toString() + "Empleat{" + "dataAlta=" + dataAlta + ", nomina=" + nomina + '}';
     }
 
 }
