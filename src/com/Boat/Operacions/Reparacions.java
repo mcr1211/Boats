@@ -24,8 +24,9 @@ public class Reparacions {
     private Estat estat;
     private Vaixell vaixell;
     private double preu;
+    private int numReparacio;
 
-    public Reparacions(String lloc, Date dataInici, Date dataFi, String descripcio, Estat estat, Vaixell vaixell, double preu) {
+    public Reparacions(String lloc, Date dataInici, Date dataFi, String descripcio, Estat estat, Vaixell vaixell, double preu,int numReparacio) {
         this.lloc = lloc;
         this.dataInici = dataInici;
         this.dataFi = dataFi;
@@ -34,6 +35,7 @@ public class Reparacions {
         this.vaixell = vaixell;
         this.preu = preu;
         this.treballadors = new ArrayList<Taller>();
+        this.numReparacio = numReparacio;
     }
 
     public ArrayList<Taller> getTreballadors() {
@@ -42,6 +44,14 @@ public class Reparacions {
 
     public void setTreballadors(ArrayList<Taller> treballadors) {
         this.treballadors = treballadors;
+    }
+
+    public int getNumReparacio() {
+        return numReparacio;
+    }
+
+    public void setNumReparacio(int numReparacio) {
+        this.numReparacio = numReparacio;
     }
 
     public String getLloc() {

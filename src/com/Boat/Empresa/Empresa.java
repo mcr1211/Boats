@@ -8,6 +8,7 @@ package com.Boat.Empresa;
 import com.Boat.Exception.AfegirException;
 import com.Boat.Exception.EliminarException;
 import com.Boat.Exception.LlistesException;
+import com.Boat.Exception.RepetitException;
 import com.Boat.Model.Model;
 import com.Boat.Operacions.Estat;
 import com.Boat.Operacions.Lloguer;
@@ -156,6 +157,62 @@ public class Empresa {
         }
     }
 
+    public void afegirLloguer(Lloguer lloguer) throws RepetitException {
+        for (Lloguer d : llistaLloguer) {
+            if (d.equals(lloguer)) {
+                throw new RepetitException("Ja existeix");
+            }
+        }
+        llistaLloguer.add(lloguer);
+    }
+
+    public Lloguer eliminarLloguer(int idLloguer) throws LlistesException {
+        for (Lloguer d : llistaLloguer) {
+            if (d.getIdLloguer() == idLloguer) {
+                llistaLloguer.remove(d);
+            }
+        }
+        if (llistaLloguer.isEmpty()) {
+
+        }
+        throw new LlistesException("La llista està buida");
+    }
+
+    public void afegirVenda(Venda venda) throws RepetitException {
+        for (Venda d : llistaVenda) {
+            if (d.equals(venda)) {
+                throw new RepetitException("Ja existeix");
+            }
+        }
+    }
+
+    public void eliminarVenda(int numVenda) throws EliminarException {
+        for (Venda d : llistaVenda) {
+            if (d.getNumVenda() == numVenda) {
+                llistaVenda.remove(d);
+            } else {
+                throw new EliminarException("No concideixen el numVenda");
+            }
+        }
+    }
+
+    public void afegirReparacio(Reparacions reparacio) throws RepetitException {
+        for (Reparacions d : llistaReparacions) {
+            if (d.equals(reparacio)) {
+                throw new RepetitException("Ja existeix");
+            }
+        }
+        llistaReparacions.add(reparacio);
+    }
+
+    public void eliminarReparacio(int numReparacio) {
+        for (Reparacions d : llistaReparacions) {
+            if (d.getNumReparacio() == numReparacio) {
+                llistaReparacions.remove(d);
+            }
+        }
+    }
+
     public void eliminarClient(String numDocument) throws EliminarException {
         if (llistaClient.remove(numDocument) == null) {
             throw new EliminarException();
@@ -195,8 +252,6 @@ public class Empresa {
             llistaPatro.remove(numDocument);
         }
     }
-    
-   
 
     public HashSet<Model> llistesModels() throws LlistesException {
         HashSet<Model> llistaModel = new HashSet<>();
