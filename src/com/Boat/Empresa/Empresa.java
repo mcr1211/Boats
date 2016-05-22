@@ -16,6 +16,7 @@ import com.Boat.Persona.Client;
 import com.Boat.Persona.Comercial;
 import com.Boat.Persona.Document;
 import com.Boat.Persona.Empleat;
+import com.Boat.Persona.Patro;
 import com.Boat.Persona.Persona;
 import com.Boat.Vaixell.Vaixell;
 import java.util.ArrayList;
@@ -132,6 +133,8 @@ public class Empresa {
         }
         llistaEmpleat.put(comercial.getNumDocument(), comercial);
     }
+    
+   
 
     public HashSet<Model> llistesModels() throws LlistesException {
         HashSet<Model> llistaModel = new HashSet<>();
