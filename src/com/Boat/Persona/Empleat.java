@@ -26,53 +26,9 @@ public class Empleat extends Persona {
         super(nom, llinatge, document, numDocument, adreça, telefon, email);
         this.dataAlta = dataAlta;
         this.nomina = nomina;
-        llistaHabilitats = new ArrayList<>();
-    }
-
-    public void afegirHabilitat(Habilitats nova) throws AfegirException {
-
-        if (llistaHabilitats.contains(nova)) {
-            throw new AfegirException("No s'ha afegit, perqué ja existeix");
-        } else {
-            llistaHabilitats.add(nova);
-
-        }
 
     }
 
-    public void eliminarHabilitat(Habilitats habilitat) {
-
-        Iterator<Habilitats> it = llistaHabilitats.iterator();
-
-        while (it.hasNext()) {
-            Habilitats elemento = it.next();
-            if (elemento == habilitat) {
-                it.remove();
-            }
-
-        }
-    }
-
-    public ArrayList<Habilitats> mostraHabilitats() throws LlistesException {
-
-        if (llistaHabilitats.isEmpty()) {
-            throw new LlistesException("La llista esta buida");
-
-        } else {
-            getLlistaHabilitats();
-        }
-        return llistaHabilitats;
-
-    }
-
-    public ArrayList<Habilitats> getLlistaHabilitats() {
-
-        return llistaHabilitats;
-    }
-
-    public void setLlistaHabilitats(ArrayList<Habilitats> llistaHabilitats) {
-        this.llistaHabilitats = llistaHabilitats;
-    }
 
     public Date getDataAlta() {
         return dataAlta;

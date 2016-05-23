@@ -17,18 +17,16 @@ import com.Boat.Operacions.Reparacions;
 import com.Boat.Operacions.Venda;
 import com.Boat.Persona.Client;
 import com.Boat.Persona.Comercial;
-import com.Boat.Persona.Document;
 import com.Boat.Persona.Empleat;
 import com.Boat.Persona.Patro;
-import com.Boat.Persona.Persona;
 import com.Boat.Persona.Taller;
 import com.Boat.Vaixell.Vaixell;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+
 
 /**
  *
@@ -45,6 +43,11 @@ public class Empresa {
     private ArrayList<Reparacions> llistaReparacions;
     private HashMap<String, Patro> llistaPatro;
     private HashMap<String, Taller> llistaTaller;
+    private HashMap<String, Model> llistaModelsDisponibles;
+    private ArrayList<Model> llistaModels;
+    
+    
+    
 
     public Empresa(String nom) {
         this.nomEmp = nomEmp;
@@ -56,6 +59,9 @@ public class Empresa {
         llistaReparacions = new ArrayList<>();
         llistaPatro = new HashMap<>();
         llistaTaller = new HashMap<>();
+        llistaModelsDisponibles = new HashMap<>();
+        llistaModels = new ArrayList<>();
+        
     }
 
     public String getNomEmp() {
@@ -268,6 +274,14 @@ public class Empresa {
         return llistaModel;
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
     public ArrayList<Reparacions> llistaReparacionsPendets() throws LlistesException {
         ArrayList<Reparacions> llistaPendent = new ArrayList();
         if (llistaReparacions.isEmpty()) {
@@ -352,6 +366,7 @@ public class Empresa {
 //                Map.Entry e = (Map.Entry) it.next();
 //            }
 //    }
+
     public double calcularNomina(Empleat empleat) throws NominaException {
         double sou = 1200;
         int comisio = 0;
@@ -392,14 +407,83 @@ public class Empresa {
         return liquidacio;
     }
 
-    public double ferNomina(Comercial comercial) {
+    public double ferNomina(Comercial comercial, Model preu) {
         ArrayList<Venda> vendesComercial = new ArrayList<>();
         double totalNomina=0;
         if (llistaVenda.contains(comercial.getNumDocument())) {
             for (Venda d : llistaVenda) {
-               totalNomina = comercial.getNomina() * (comercial.getComissio()/100);
+               totalNomina = comercial.getNomina() * (preu.getPreu()*comercial.getComissio()/100);
             }
         }
         return totalNomina;
     }
+
+//    public Empleat ferNomina(String numDocument){
+//        if(llistaEmpleat.containsKey(numDocument)){
+//            for(Venda d:llistaVenda){
+//                if(d.getComercial().equals(llistaEmpleat.get(numDocument))){
+//                    
+//                }
+//            }
+//        }
+//    }
+//    
+    public HashMap<String,Model> llistaModelsDisponibles() {
+        
+        
+    return llistaModelsDisponibles;
+
+
 }
+    
+    
+    public void afegirLlistaModel(Model model) throws LlistesException{
+    
+        if (llistaModels.contains(model)) {
+                throw new LlistesException("No s'ha afegit, perqué ja existeix");
+            } else {
+                llistaModels.add(model);    
+
+            }
+
+       
+    
+}
+    public ArrayList<Model> getLlistaModels(){
+    
+        return llistaModels;
+    }
+    
+    public void tornaLlistaModels(){
+        for(Model i : llistaModels){
+            System.out.println(i);
+        }
+    }
+    
+    public ArrayList<Model> llistaModelsTipus(String model)throws LlistesException{
+        ArrayList<Model> llista = new ArrayList<>(); 
+        if (llistaModels.isEmpty()) {
+            throw new LlistesException("la llista esta buida"); 
+        }
+        else{
+            for(Model i : llistaModels){
+                if(i.getClass().getSimpleName().equalsIgnoreCase(model)){
+                llista.add(i);
+              }
+            }
+        }
+        return llista;
+    }
+    
+
+    public void eliminarLlistaModel(Model model){
+        if(llistaModels.contains(model)){
+            llistaModels.remove(model);
+        } else {
+            System.out.println("no esta en la lista de modelos" + model);
+
+        }
+}
+    
+}
+

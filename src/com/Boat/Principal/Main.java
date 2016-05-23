@@ -44,7 +44,8 @@ public class Main {
         Empresa BoatInc = new Empresa("BOATS Inc");
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
         String data = "1-05-2016";
-        Date d1 = sdf.parse(data);
+//        Date d1 = sdf.parse(data);
+        Date d1=null;
 
         Taller Toni = new Taller(d1, 900, "Toni", "Dalmau", Document.DNI, "43194116R", "C/ Sol nº5", 620354389, "tonid@gmail.com");
         Taller Miquel = new Taller(d1, 900, "Miquel", "Abrines", Document.DNI, "98125369Z", "C/Plutó nº1", 620136987, "miquelabri@gmail.com");
