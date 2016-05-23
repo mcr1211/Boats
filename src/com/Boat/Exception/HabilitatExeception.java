@@ -7,24 +7,24 @@ package com.Boat.Exception;
 
 /**
  *
- * @author Toni Dalmau Martínez
+ * @author Elio
  */
-public class habilitatException extends Exception {
+public class HabilitatExeception extends Exception {
 
     /**
-     * Creates a new instance of <code>habilitatException</code> without detail
+     * Creates a new instance of <code>HabilitatExeception</code> without detail
      * message.
      */
-    public habilitatException() {
+    public HabilitatExeception() {
     }
 
     /**
-     * Constructs an instance of <code>habilitatException</code> with the
+     * Constructs an instance of <code>HabilitatExeception</code> with the
      * specified detail message.
      *
      * @param msg the detail message.
      */
-    public habilitatException(String msg) {
+    public HabilitatExeception(String msg) {
         super(msg);
     }
 }

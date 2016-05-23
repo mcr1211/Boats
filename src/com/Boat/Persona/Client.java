@@ -14,7 +14,7 @@ public class Client extends Persona {
     private String compteCorrent;
     private TargetaCredit targetaCredit;
 
-    public Client(String compteCorrent, TargetaCredit targetaCredit, String nom, String llinatge, Document document, String numDocument, String adreça, int telefon, String email) {
+    public Client(String nom, String llinatge, Document document, String numDocument, String adreça, int telefon, String email, String compteCorrent, TargetaCredit targetaCredit) {
         super(nom, llinatge, document, numDocument, adreça, telefon, email);
         this.compteCorrent = compteCorrent;
         this.targetaCredit = targetaCredit;

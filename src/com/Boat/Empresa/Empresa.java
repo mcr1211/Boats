@@ -8,6 +8,7 @@ package com.Boat.Empresa;
 import com.Boat.Exception.AfegirException;
 import com.Boat.Exception.EliminarException;
 import com.Boat.Exception.LlistesException;
+import com.Boat.Exception.NominaException;
 import com.Boat.Exception.RepetitException;
 import com.Boat.Model.Model;
 import com.Boat.Operacions.Estat;
@@ -351,14 +352,54 @@ public class Empresa {
 //                Map.Entry e = (Map.Entry) it.next();
 //            }
 //    }
-//    public Empleat ferNomina(String numDocument){
-//        if(llistaEmpleat.containsKey(numDocument)){
-//            for(Venda d:llistaVenda){
-//                if(d.getComercial().equals(llistaEmpleat.get(numDocument))){
-//                    
-//                }
-//            }
-//        }
-//    }
-//    
+    public double calcularNomina(Empleat empleat) throws NominaException {
+        double sou = 1200;
+        int comisio = 0;
+        int irpf = 4;
+        double totalDeduir;
+        double totalRetencio;
+        double liquidacio = 0;
+        ArrayList<Venda> llistaVendes = new ArrayList();
+
+        if (empleat instanceof Comercial) {
+            for (Venda d : llistaVendes) {
+                if (llistaVendes.contains(empleat.getNumDocument())) {
+                    llistaVendes.add(d);
+                }
+                llistaVendes.size();
+            }
+            if (llistaVendes.size() == 0) {
+                throw new NominaException("Aquest venedor es un vago.");
+            }
+            if (llistaVendes.size() >= 1 && llistaVendes.size() <= 5) {
+                comisio = 5;
+            }
+            if (llistaVendes.size() >= 6 && llistaVendes.size() <= 10) {
+                comisio = 10;
+            }
+            if (llistaVendes.size() > 10) {
+                comisio = 15;
+            }
+            totalDeduir = sou + (sou * comisio / 100);
+            totalRetencio = totalDeduir * (irpf / 100);
+            liquidacio = totalDeduir - totalRetencio;
+        } else if (empleat instanceof Taller) {
+            totalDeduir = sou;
+            totalRetencio = totalDeduir * (irpf / 100);
+            liquidacio = totalDeduir - totalRetencio;
+        }
+
+        return liquidacio;
+    }
+
+    public double ferNomina(Comercial comercial) {
+        ArrayList<Venda> vendesComercial = new ArrayList<>();
+        double totalNomina=0;
+        if (llistaVenda.contains(comercial.getNumDocument())) {
+            for (Venda d : llistaVenda) {
+               totalNomina = comercial.getNomina() * (comercial.getComissio()/100);
+            }
+        }
+        return totalNomina;
+    }
 }
