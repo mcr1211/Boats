@@ -40,7 +40,7 @@ import java.util.Map;
 public class Main {
 
     public Empresa inici() throws BoatException, EliminarException, LlistesException, PersonaException, AfegirException, ParseException {
-
+        try{
         Empresa BoatInc = new Empresa("BOATS Inc");
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
         String data = "1-05-2016";
@@ -85,16 +85,25 @@ public class Main {
         BoatInc.afegirVaixell(vaixell3);
 
         Patro Marcus = new Patro("Marcus", "Demian", Document.PASSAPORT, "1654916054O", "", 33512686, "marcus@yahoo.fr", "Capitán Navio", 300);
+        
         return BoatInc;
+
+        }catch(BoatException ex){
+            System.out.println(ex.getMessage());
+//        }catch(LlistesException lli){
+//            System.out.println(lli.getMessage());
+//        }catch(){
+//        
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws BoatException, EliminarException, LlistesException, PersonaException, AfegirException, ParseException {
+ 
+ 
+        return null;
+}
+   public static void main(String[] args)  {
         // TODO code application logic here
-        Main inicialitzador = new Main();
-        inicialitzador.inici();
+        Main main = new Main();
+//        Empresa boat = main.inici();
+//        main.inici();
     }
-
 }
