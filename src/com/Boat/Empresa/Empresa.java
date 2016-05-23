@@ -409,31 +409,25 @@ public class Empresa {
         }
     }
     
-    public void llistaModelsTipus(String model)throws LlistesException{
-        
+    public ArrayList<Model> llistaModelsTipus(String model)throws LlistesException{
+        ArrayList<Model> llista = new ArrayList<>(); 
         if (llistaModels.isEmpty()) {
             throw new LlistesException("la llista esta buida"); 
         }
         else{
             for(Model i : llistaModels){
                 if(i.getClass().getSimpleName().equalsIgnoreCase(model)){
-                System.out.println(i);
-                
+                llista.add(i);
               }
-                else {
-                    System.out.println("no es del mismo tipo" + i);
-                    
-                        }
+            }
         }
-        }
-        
+        return llista;
     }
     
-    
+
     public void eliminarLlistaModel(Model model){
         if(llistaModels.contains(model)){
             llistaModels.remove(model);
-
         } else {
             System.out.println("no esta en la lista de modelos" + model);
 
