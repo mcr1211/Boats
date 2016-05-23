@@ -29,6 +29,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
+import com.Boat.Persona.ModelTipus;
 /**
  *
  * @author Elio
@@ -44,6 +45,11 @@ public class Empresa {
     private ArrayList<Reparacions> llistaReparacions;
     private HashMap<String, Patro> llistaPatro;
     private HashMap<String, Taller> llistaTaller;
+    private HashMap<String, Model> llistaModelsDisponibles;
+    private ArrayList<Model> llistaModels;
+    
+    
+    
 
     public Empresa(String nom) {
         this.nomEmp = nomEmp;
@@ -55,6 +61,9 @@ public class Empresa {
         llistaReparacions = new ArrayList<>();
         llistaPatro = new HashMap<>();
         llistaTaller = new HashMap<>();
+        llistaModelsDisponibles = new HashMap<>();
+        llistaModels = new ArrayList<>();
+        
     }
 
     public String getNomEmp() {
@@ -267,6 +276,14 @@ public class Empresa {
         return llistaModel;
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
     public ArrayList<Reparacions> llistaReparacionsPendets() throws LlistesException {
         ArrayList<Reparacions> llistaPendent = new ArrayList();
         if (llistaReparacions.isEmpty()) {
@@ -361,4 +378,67 @@ public class Empresa {
 //        }
 //    }
 //    
+    public HashMap<String,Model> llistaModelsDisponibles() {
+        
+        
+    return llistaModelsDisponibles;
+
 }
+    
+    
+    public void afegirLlistaModel(Model model) throws LlistesException{
+    
+        if (llistaModels.contains(model)) {
+                throw new LlistesException("No s'ha afegit, perqué ja existeix");
+            } else {
+                llistaModels.add(model);    
+
+            }
+
+       
+    
+}
+    public ArrayList<Model> getLlistaModels(){
+    
+        return llistaModels;
+    }
+    
+    public void tornaLlistaModels(){
+        for(Model i : llistaModels){
+            System.out.println(i);
+        }
+    }
+    
+    public void llistaModelsTipus(String model)throws LlistesException{
+        
+        if (llistaModels.isEmpty()) {
+            throw new LlistesException("la llista esta buida"); 
+        }
+        else{
+            for(Model i : llistaModels){
+                if(i.getClass().getSimpleName().equalsIgnoreCase(model)){
+                System.out.println(i);
+                
+              }
+                else {
+                    System.out.println("no es del mismo tipo" + i);
+                    
+                        }
+        }
+        }
+        
+    }
+    
+    
+    public void eliminarLlistaModel(Model model){
+        if(llistaModels.contains(model)){
+            llistaModels.remove(model);
+
+        } else {
+            System.out.println("no esta en la lista de modelos" + model);
+
+        }
+}
+    
+}
+
