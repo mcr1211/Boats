@@ -21,6 +21,8 @@ import com.Boat.Persona.Empleat;
 import com.Boat.Persona.Patro;
 import com.Boat.Persona.Taller;
 import com.Boat.Vaixell.Vaixell;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -463,9 +465,7 @@ public class Empresa {
         }
         return disponible;
     }
-    
-   
-    
+  
     public ArrayList<Model> getLlistaModels() {
 
         return llistaModels;
