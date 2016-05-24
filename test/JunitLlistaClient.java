@@ -37,6 +37,9 @@ public class JunitLlistaClient {
         Empresa test = new Empresa("Test");
         Client test1 = new Client("test", "test", Document.DNI, "45987546Q", "C/Garriga nº50", 68978516, "bielr@gmail.com","6545");
         Client test2 = new Client("test", "test", Document.DNI, "45987546Q", "C/Garriga nº50", 68978516, "bielr@gmail.com","6545");
+        test.afegirClient(test1);
+        test.afegirClient(test2);
+
     }
     
     public void testEliminarClient() throws EliminarException{

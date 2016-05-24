@@ -146,7 +146,7 @@ public class Empresa {
 
     public void afegirPatro(Patro patro) throws AfegirException {
         if (llistaPatro.containsKey(patro.getNumDocument())) {
-            throw new AfegirException();
+            throw new AfegirException("");
         } else {
             llistaPatro.put(patro.getNumDocument(), patro);
         }
@@ -154,7 +154,7 @@ public class Empresa {
 
     public void afegirTaller(Taller taller) throws AfegirException {
         if (llistaTaller.containsKey(taller.getNumDocument())) {
-            throw new AfegirException();
+            throw new AfegirException("No s'ha pogut afegir");
         } else {
             llistaTaller.put(taller.getNumDocument(), taller);
         }

@@ -41,9 +41,9 @@ import java.util.Map;
  */
 public class Main {
 
-    public Empresa inici() throws BoatException, EliminarException, LlistesException, PersonaException, AfegirException, ParseException {
+    public Empresa inici(){
+               Empresa BoatInc = new Empresa("BOATS Inc");
         try{
-        Empresa BoatInc = new Empresa("BOATS Inc");
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
         String data = "1-05-2016";
 //        Date d1 = sdf.parse(data);
@@ -58,7 +58,7 @@ public class Main {
         BoatInc.afegirComercial(Tomas);
         BoatInc.afegirComercial(Edgar);
         BoatInc.afegirTaller(Miquel);
-        BoatInc.afegirTaller(Miquel);
+        BoatInc.afegirTaller(Toni);
 
         TargetaCredit visa1 = new TargetaCredit(0210026542, 12, 2017, 213);
         TargetaCredit visa2 = new TargetaCredit(0213026542, 12, 2017, 513);
@@ -98,11 +98,10 @@ public class Main {
 //            System.out.println(lli.getMessage());
 //        }catch(){
 //        
-    }
+    }finally{
+            return BoatInc;
+        }
 
- 
- 
-        return null;
 }
     
     
@@ -114,10 +113,12 @@ public class Main {
         EinesObjectStream.escriuObjecte(desti, this);
     }
     
-   public static void main(String[] args)  {
+   public static void main(String[] args) throws BoatException, EliminarException, PersonaException, LlistesException, AfegirException, ParseException  {
         String desti="C:\\Users\\BoatsInc\\Documents\\Dades.odt";
         Main main = new Main();
-//        Empresa boat = main.inici();
-//        main.inici();
+        Empresa boat = main.inici();
+ 
+        
+       
     }
 }

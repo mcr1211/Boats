@@ -6,6 +6,7 @@
 package com.Boat.Persona;
 
 //import com.Boat.Exception.HabilitatException;
+import com.Boat.Exception.HabilitatException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -35,24 +36,24 @@ public class Taller extends Empleat {
         this.skill = skill;
     }
 
-//    public void afegirSkill(Habilitats s) throws HabilitatException {
-//        if (skill.isEmpty()) {
-//            skill.add(s);
-//        }
-//        if (skill.contains(s)) {
-////            throw new HabilitatException("Aquesta habilitat ja està posada.");
-//        } else {
-//            skill.add(s);
-//        }
-//    }
+    public void afegirSkill(Habilitats s) throws HabilitatException {
+        if (skill.isEmpty()) {
+            skill.add(s);
+        }
+        if (skill.contains(s)) {
+            throw new HabilitatException("Aquesta habilitat ja està posada.");
+        } else {
+            skill.add(s);
+        }
+    }
 
-//    public void eliminarSkill(Habilitats s) throws HabilitatException {
-//        if(skill.contains(s)){
-//            skill.remove(s);
-//        }else{
-////            throw new HabilitatException("Aquesta habilitat no està posada.");
-//        }
-//    }
+    public void eliminarSkill(Habilitats s) throws HabilitatException {
+        if(skill.contains(s)){
+            skill.remove(s);
+        }else{
+            throw new HabilitatException("Aquesta habilitat no està posada.");
+        }
+    }
 
     public ArrayList tornaSkill() {
         return skill;
