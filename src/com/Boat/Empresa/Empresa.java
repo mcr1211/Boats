@@ -22,6 +22,7 @@ import com.Boat.Persona.Patro;
 import com.Boat.Persona.Taller;
 import com.Boat.Vaixell.Vaixell;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -421,7 +422,53 @@ public class Empresa {
         }
 
     }
-
+    
+    public ArrayList<Vaixell> llistaDisponibles(Date inici , Date altre){
+        ArrayList<Vaixell> lista = new ArrayList<>();
+        for(Vaixell i : llistaVaixell2){
+            if(i.isLlogar()){
+                lista.add(i);
+            }
+        }
+        if(!llistaLloguer.isEmpty()){
+        for(Lloguer k : llistaLloguer)  {
+        lista.remove(k);
+        }
+        
+        }
+        for(Vaixell i : llistaVaixell2){
+            if(i.isLlogar()){
+                if(i.getDisponible().after(inici) && i.getDisponible().before(altre)){
+                            System.out.println(i.getDisponible());
+                } 
+                else {
+                    lista.remove(i);
+                } 
+            }
+        }
+        System.out.println(lista);
+        return null;
+    }  
+    
+    //ArrayList<Vaixell>
+    public ArrayList<Vaixell>llistaVaixellDisponiblesAcabat(){
+      ArrayList<Vaixell> disponible  = new ArrayList<>();
+        for (Vaixell i :llistaVaixell.values()){
+            if(i.getEstat() == Estat.ACABAT){
+                disponible.add(i);
+                
+            }
+        }
+        return disponible;
+    }
+    
+    
+    public HashMap<String,Model> llistaModelsDisponibles() {
+            
+    return llistaModelsDisponibles;
+    
+    }
+    
     public ArrayList<Model> getLlistaModels() {
 
         return llistaModels;
