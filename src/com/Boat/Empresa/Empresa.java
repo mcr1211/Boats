@@ -27,7 +27,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
-
 /**
  *
  * @author Elio
@@ -45,9 +44,6 @@ public class Empresa {
     private HashMap<String, Taller> llistaTaller;
     private HashMap<String, Model> llistaModelsDisponibles;
     private ArrayList<Model> llistaModels;
-    
-    
-    
 
     public Empresa(String nom) {
         this.nomEmp = nomEmp;
@@ -61,7 +57,7 @@ public class Empresa {
         llistaTaller = new HashMap<>();
         llistaModelsDisponibles = new HashMap<>();
         llistaModels = new ArrayList<>();
-        
+
     }
 
     public String getNomEmp() {
@@ -274,14 +270,6 @@ public class Empresa {
         return llistaModel;
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
     public ArrayList<Reparacions> llistaReparacionsPendets() throws LlistesException {
         ArrayList<Reparacions> llistaPendent = new ArrayList();
         if (llistaReparacions.isEmpty()) {
@@ -366,7 +354,6 @@ public class Empresa {
 //                Map.Entry e = (Map.Entry) it.next();
 //            }
 //    }
-
     public double calcularNomina(Empleat empleat) throws NominaException {
         double sou = 1200;
         int comisio = 0;
@@ -409,81 +396,64 @@ public class Empresa {
 
     public double ferNomina(Comercial comercial, Model preu) {
         ArrayList<Venda> vendesComercial = new ArrayList<>();
-        double totalNomina=0;
+        double totalNomina = 0;
         if (llistaVenda.contains(comercial.getNumDocument())) {
             for (Venda d : llistaVenda) {
-               totalNomina = comercial.getNomina() * (preu.getPreu()*comercial.getComissio()/100);
+                totalNomina = comercial.getNomina() * (preu.getPreu() * comercial.getComissio() / 100);
             }
         }
         return totalNomina;
     }
 
-//    public Empleat ferNomina(String numDocument){
-//        if(llistaEmpleat.containsKey(numDocument)){
-//            for(Venda d:llistaVenda){
-//                if(d.getComercial().equals(llistaEmpleat.get(numDocument))){
-//                    
-//                }
-//            }
-//        }
-//    }
-//    
-    public HashMap<String,Model> llistaModelsDisponibles() {
-        
-        
-    return llistaModelsDisponibles;
+    public HashMap<String, Model> llistaModelsDisponibles() {
 
+        return llistaModelsDisponibles;
 
-}
-    
-    
-    public void afegirLlistaModel(Model model) throws LlistesException{
-    
+    }
+
+    public void afegirLlistaModel(Model model) throws LlistesException {
+
         if (llistaModels.contains(model)) {
-                throw new LlistesException("No s'ha afegit, perqué ja existeix");
-            } else {
-                llistaModels.add(model);    
+            throw new LlistesException("No s'ha afegit, perqué ja existeix");
+        } else {
+            llistaModels.add(model);
 
-            }
+        }
 
-       
-    
-}
-    public ArrayList<Model> getLlistaModels(){
-    
+    }
+
+    public ArrayList<Model> getLlistaModels() {
+
         return llistaModels;
     }
-    
-    public void tornaLlistaModels(){
-        for(Model i : llistaModels){
+
+    public void tornaLlistaModels() {
+        for (Model i : llistaModels) {
             System.out.println(i);
         }
     }
-    
-    public ArrayList<Model> llistaModelsTipus(String model)throws LlistesException{
-        ArrayList<Model> llista = new ArrayList<>(); 
+
+    public ArrayList<Model> llistaModelsTipus(String model) throws LlistesException {
+        ArrayList<Model> llista = new ArrayList<>();
         if (llistaModels.isEmpty()) {
-            throw new LlistesException("la llista esta buida"); 
-        }
-        else{
-            for(Model i : llistaModels){
-                if(i.getClass().getSimpleName().equalsIgnoreCase(model)){
-                llista.add(i);
-              }
+            throw new LlistesException("la llista esta buida");
+        } else {
+            for (Model i : llistaModels) {
+                if (i.getClass().getSimpleName().equalsIgnoreCase(model)) {
+                    llista.add(i);
+                }
             }
         }
         return llista;
     }
-    
 
-    public void eliminarLlistaModel(Model model){
-        if(llistaModels.contains(model)){
+    public void eliminarLlistaModel(Model model) {
+        if (llistaModels.contains(model)) {
             llistaModels.remove(model);
         } else {
             System.out.println("no esta en la lista de modelos" + model);
 
         }
-}
-    
-}
+    }
 
+}

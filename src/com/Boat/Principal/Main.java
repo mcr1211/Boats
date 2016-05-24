@@ -6,6 +6,7 @@
 package com.Boat.Principal;
 
 import com.Boat.Empresa.Empresa;
+import com.Boat.Empresa.streams.eines.EinesObjectStream;
 import com.Boat.Exception.AfegirException;
 import com.Boat.Exception.BoatException;
 import com.Boat.Exception.EliminarException;
@@ -27,6 +28,7 @@ import com.Boat.Persona.Persona;
 import com.Boat.Persona.Taller;
 import com.Boat.Persona.TargetaCredit;
 import com.Boat.Vaixell.Vaixell;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -102,8 +104,18 @@ public class Main {
  
         return null;
 }
+    
+    
+    public void llegeixFitxer(String desti) throws IOException{
+        EinesObjectStream.llegeixObjecte(desti);
+    }
+    
+    public void guardarFitxer(String desti) throws IOException{
+        EinesObjectStream.escriuObjecte(desti, this);
+    }
+    
    public static void main(String[] args)  {
-        // TODO code application logic here
+        String desti="C:\\Users\\BoatsInc\\Documents\\Dades.odt";
         Main main = new Main();
 //        Empresa boat = main.inici();
 //        main.inici();
