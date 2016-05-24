@@ -42,7 +42,7 @@ public class edgar {
 //        Empleat yo = new Empleat(dita,1000,10000,"yo","segon",Document.DNI,"4321898701j","calle 1",800,"yo@gmail.com");
 //        Empleat paula = new Empleat(dita,1000,10000,"paula","segon",Document.DNI,"432189802j","calle 1",801,"paula@gmail.com");
 
-        
+ 
 //        try {
             
         //yo.afegirHabilitat(VIDRE);
@@ -150,16 +150,28 @@ public class edgar {
        
        String dia = "10/03/2016";
        Date diaDate = dt.parse(dia);
-       String diaDt = dt.format(diaDate);
        
-       String dia2 = "28/03/2016";
-       Date diaDate2 = dt.parse(dia2);
-       String diaDt2 = dt.format(diaDate2);
+       String dia28 = "28/03/2016";
+       Date diaDate28 = dt.parse(dia28);
+       
+       String dia5 = "5/03/2016";
+       Date diaDate5 = dt.parse(dia5);
+       
+       String dia6 = "6/03/2016";
+       Date diaDate6 = dt.parse(dia6);
+              
+       String dia7 = "7/03/2016";
+       Date diaDate7 = dt.parse(dia7);
+       
+       String dia8 = "8/03/2016";
+       Date diaDate8 = dt.parse(dia8);
+       String diaDt8 = dt.format(diaDate8);
        
        Vaixell vaixell1 = new Vaixell("Feadship",ancora,"6ª-TA-2-010-12","BOATS INC",true,diaIniciDate,Estat.ACABAT,200.50);
-       Vaixell vaixell2 = new Vaixell("Yamaha",motoAquatica1,"6ª-TA-3/12","BOATS INC",false,diaDate2,Estat.ACABAT,75);
-       Vaixell vaixell3 = new Vaixell("Jeanneau",interceptor,"6ª-TA-058-16","BOATS INC",false,diaDate,Estat.PENDENT,0);
-       
+       Vaixell vaixell2 = new Vaixell("Yamaha",motoAquatica1,"6ª-TA-3/12","BOATS INC",false,diaDate8,Estat.ACABAT,75);
+       Vaixell vaixell3 = new Vaixell("Jeanneau",interceptor,"6ª-TA-058-16","BOATS INC",true,diaDate7,Estat.PENDENT,0);
+       Vaixell vaixell4 = new Vaixell("Zuzuki",motoAquatica1,"6ª-JY-3/12","BOATS INC",true,diaDate8,Estat.ACABAT,75);
+
         
         TargetaCredit visa  = new TargetaCredit(23,5,5,10);
         
@@ -168,34 +180,128 @@ public class edgar {
         Patro patro1 = new Patro("losa","las",Document.PASSAPORT,"102938741243","palma2",1029384,"losa@gmail","Magisterio",300);
             
         Lloguer lloguer1 = new Lloguer(diaIniciDate,diaDate,patro1,vaixell1,200000,Estat.ACABAT,client2,1);
+        //Lloguer lloguer2 = new Lloguer(diaIniciDate,diaDate,patro1,vaixell1,200000,Estat.ACABAT,client2,1);
+
+        // llogado el vaixell1 true del 1 al 10
+        // vaixell4 no esta llogado y true esta desde 8
         
-        
-        
-        
-            
+       
         boatInc.afegirVaixell(vaixell1);
         boatInc.afegirVaixell(vaixell2);
-        
-        
+        boatInc.afegirVaixell(vaixell3);
+        boatInc.afegirVaixell(vaixell4);
+ 
         boatInc.afegirLloguer(lloguer1);
-        
-        boatInc.getLlistaLloguer();
-        
-        
-        
+        System.out.println(boatInc.getLlistaLloguer());        
+       
+        System.out.println("lista de disponibles -------------");
+        boatInc.llistaDisponibles(diaDate5,diaDate);
+        System.out.println("lista de disponibles -------------");
 
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        public ArrayList<Vaixell> llistaDisponibles(Date inici , Date altre){
+        ArrayList<Vaixell> lista = new ArrayList<>();
+        for(Vaixell i : llistaVaixell2){
+            if(i.isLlogar()){
+                lista.add(i);
+            }
+        }
+        if(!llistaLloguer.isEmpty()){
+        for(Lloguer k : llistaLloguer)  {
+        lista.remove(k);
+        }
+        
+        }
+        for(Vaixell i : llistaVaixell2){
+            if(i.isLlogar()){
+                if(i.getDisponible().after(inici) && i.getDisponible().before(altre)){
+                            System.out.println(i.getDisponible());
+                } 
+                else {
+                    lista.remove(i);
+                } 
+            }
+        }
+        System.out.println(lista);
+        return null;
+    }  
+    
+    
+    
+    //ArrayList<Vaixell>
+   
+    
+    public ArrayList<Vaixell>llistaVaixellDisponiblesAcabat(){
+      ArrayList<Vaixell> disponible  = new ArrayList<>();
+        for (Vaixell i :llistaVaixell.values()){
+            if(i.getEstat() == Estat.ACABAT){
+                disponible.add(i);
+                
+            }
+        }
+        return disponible;
+    }
+    
+    
+    public HashMap<String,Model> llistaModelsDisponibles() {
             
+    return llistaModelsDisponibles;
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        
+       
+       
+        //System.out.println(boatInc.getLlistaLloguer());
+        
             
             
             
             //boatInc.llistesModelsDisponibles();
+                  
             
-            
-            
-            
-            
-            
-            
+        
         
     }      
                 
