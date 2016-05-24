@@ -49,9 +49,11 @@ public class Main {
 
         Taller Toni = new Taller(d1, 900, "Toni", "Dalmau", Document.DNI, "43194116R", "C/ Sol nº5", 620354389, "tonid@gmail.com");
         Taller Miquel = new Taller(d1, 900, "Miquel", "Abrines", Document.DNI, "98125369Z", "C/Plutó nº1", 620136987, "miquelabri@gmail.com");
-
+        
+        Comercial Tomas = new Comercial (10,d1,1600,"Tomeu","Boto", Document.NIE, "46523154K","c/mar nº99",689745200,"tomeu@boto.com");
         Comercial Edgar = new Comercial(10, d1, 1499, "Edgar", "Robayo", Document.DNI, "43195117T", "C/Lluna nº7", 621354388, "edgar@gmail.com");
 
+        BoatInc.afegirComercial(Tomas);
         BoatInc.afegirComercial(Edgar);
         BoatInc.afegirTaller(Miquel);
         BoatInc.afegirTaller(Miquel);
