@@ -45,6 +45,7 @@ public class Empresa {
     private HashMap<String, Taller> llistaTaller;
     private HashMap<String, Model> llistaModelsDisponibles;
     private ArrayList<Model> llistaModels;
+    private ArrayList<Vaixell> llistaVaixell2;
 
     public Empresa(String nom) {
         this.nomEmp = nomEmp;
@@ -58,6 +59,7 @@ public class Empresa {
         llistaTaller = new HashMap<>();
         llistaModelsDisponibles = new HashMap<>();
         llistaModels = new ArrayList<>();
+        llistaVaixell2 = new ArrayList<>();
 
     }
 
@@ -423,7 +425,7 @@ public class Empresa {
 
     }
     
-    public ArrayList<Vaixell> llistaDisponibles(Date inici , Date altre){
+    public ArrayList<Vaixell> llistaEmbDisponibles(Date inici , Date altre){
         ArrayList<Vaixell> lista = new ArrayList<>();
         for(Vaixell i : llistaVaixell2){
             if(i.isLlogar()){
@@ -462,12 +464,7 @@ public class Empresa {
         return disponible;
     }
     
-    
-    public HashMap<String,Model> llistaModelsDisponibles() {
-            
-    return llistaModelsDisponibles;
-    
-    }
+   
     
     public ArrayList<Model> getLlistaModels() {
 
