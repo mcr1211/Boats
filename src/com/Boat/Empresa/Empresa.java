@@ -443,15 +443,13 @@ public class Empresa {
         for(Vaixell i : llistaVaixell2){
             if(i.isLlogar()){
                 if(i.getDisponible().after(inici) && i.getDisponible().before(altre)){
-                            System.out.println(i.getDisponible());
                 } 
                 else {
                     lista.remove(i);
                 } 
             }
         }
-        System.out.println(lista);
-        return null;
+        return lista;
     }  
     
     //ArrayList<Vaixell>
@@ -471,11 +469,6 @@ public class Empresa {
         return llistaModels;
     }
 
-    public void tornaLlistaModels() {
-        for (Model i : llistaModels) {
-            System.out.println(i);
-        }
-    }
 
     public ArrayList<Model> llistaModelsTipus(String model) throws LlistesException {
         ArrayList<Model> llista = new ArrayList<>();
@@ -491,11 +484,11 @@ public class Empresa {
         return llista;
     }
 
-    public void eliminarLlistaModel(Model model) {
+    public void eliminarLlistaModel(Model model) throws EliminarException {
         if (llistaModels.contains(model)) {
             llistaModels.remove(model);
         } else {
-            System.out.println("no esta en la lista de modelos" + model);
+            throw EliminarException("no es troba");
 
         }
     }
